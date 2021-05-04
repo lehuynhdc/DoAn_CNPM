@@ -113,18 +113,40 @@ public class ConnectionSQL {
         }
     }
     
+    //lay ma Phieu nhap cuoi cung trong database
+    public String getLastIDPN(){
+        ArrayList<String> list = new ArrayList<>();
+        String lastID = null;
+         try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
+            String select = "select idpn from phieunhap";
+            ResultSet rs = stmt.executeQuery(select);
+            while(rs.next()){
+                lastID = rs.getString("idpn");
+            }   
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+        return lastID;
+    }
+    
     public static void main(String[] args){
-        try {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date ngayNhap = sd.parse("2001-2-2");
-            PhieuNhap pn = new PhieuNhap("PN3",ngayNhap , "NV1", "NCC1");
-            ArrayList<PhieuNhap> list = new ArrayList<>();
-            ConnectionSQL sql = new ConnectionSQL();
+//        try {
+//            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+//            java.util.Date ngayNhap = sd.parse("2001-2-2");
+//            PhieuNhap pn = new PhieuNhap("PN3",ngayNhap , "NV1", "NCC1");
+//            ArrayList<PhieuNhap> list = new ArrayList<>();
+//            ConnectionSQL sql = new ConnectionSQL();
 //            sql.insertSQL(pn);
 //            sql.updateSQL("update phieunhap set idncc = 'NCC1' where idpn = 'PN2'");
 //            sql.showListPN(list);
-        } catch (ParseException ex) {
-            Logger.getLogger(ConnectionSQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        } catch (ParseException ex) {
+//            Logger.getLogger(ConnectionSQL.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);   
+        System.out.println(date);
     }
 }
