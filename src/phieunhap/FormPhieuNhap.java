@@ -11,8 +11,6 @@ import ctphieunhap.CTPhieuNhap;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -29,6 +27,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
      * Creates new form FormPhieuNhap
      */
     private DefaultTableModel model;
+    private QuanLiPhieuNhap qlpn;
     private ArrayList<MatHang> dsMatHang;
     private ArrayList<MatHang> dsMatHangDaThem = new ArrayList<>();
     private MatHang matHang;
@@ -42,6 +41,10 @@ public class FormPhieuNhap extends javax.swing.JFrame {
     
     public FormPhieuNhap() {
         initComponents();
+    }
+    
+    FormPhieuNhap(QuanLiPhieuNhap aThis, boolean rootPaneCheckingEnabled){
+        initComponents();
         this.setLocationRelativeTo(null);
         loadData();
         text_idPN.setText(autoIDPN());
@@ -49,6 +52,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         btn_XoaMHDaNhap.setVisible(false);
         comb_idMH_tenMH.setVisible(false);
         text_TimKiem.setVisible(false);
+        qlpn = aThis;
     }
 
     /**
@@ -482,6 +486,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể xuất phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
             dispose();
         }
+        qlpn.loadData();
         JOptionPane.showMessageDialog(rootPane, "Xuất phiếu thành công!", "Message", JOptionPane.INFORMATION_MESSAGE);                
         dispose();
     }//GEN-LAST:event_btn_XuatPhieuMouseClicked

@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import phieunhap.InfoCTPN;
 
 
 /**
@@ -88,6 +89,31 @@ public class ConnectionSQL {
                 CTPhieuNhap ctpn = new CTPhieuNhap();
                 ctpn.setIdPN(rs.getString("idpn"));
                 ctpn.setIdMH(rs.getString("idmathang"));
+                ctpn.setSoLuong(rs.getInt("soluong"));
+                ctpn.setGia(rs.getBigDecimal("gia"));
+                list.add(ctpn);
+            }   
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+        return list;
+    }
+    
+    //lay danh sach infoCTPN voi ma phieu nhap
+    public ArrayList<InfoCTPN> getListCTPN(String idPN){
+        ArrayList<InfoCTPN> list = new ArrayList<>();
+         try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
+            String select = "select ct.idmathang,mh.tenmathang,soluong,gia " +
+                            "from ctphieunhap ct,mathang mh " +
+                            "where idpn = '" + idPN +"' and ct.idmathang = mh.idmathang";
+            ResultSet rs = stmt.executeQuery(select);
+            while(rs.next()){
+                InfoCTPN ctpn = new InfoCTPN();
+                ctpn.setIdmathang(rs.getString("idmathang"));
+                ctpn.setTenmathang(rs.getString("tenmathang"));
                 ctpn.setSoLuong(rs.getInt("soluong"));
                 ctpn.setGia(rs.getBigDecimal("gia"));
                 list.add(ctpn);

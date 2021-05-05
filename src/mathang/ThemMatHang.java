@@ -27,7 +27,7 @@ public class ThemMatHang extends javax.swing.JFrame {
         initComponents();        
     }
 
-    ThemMatHang(QuanLiMatHang aThis, boolean rootPaneCheckingEnabled) {
+    public ThemMatHang(QuanLiMatHang aThis, boolean rootPaneCheckingEnabled) {
         initComponents();  
         this.setLocationRelativeTo(null);
         this.text_idMH.setText(this.autoIDMH());
