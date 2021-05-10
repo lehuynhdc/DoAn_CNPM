@@ -76,6 +76,18 @@ public class ConnectionSQL {
           }
     }
     
+    public void deleteSQL(String idPN){
+        try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            String delete = "delete from ctphieunhap where idpn = '"+idPN+"'";
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(delete);
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+    }
+    
     //thuc hien lay danh sach phieu nhap
     public ArrayList<CTPhieuNhap> getListCTPN(){
         ArrayList<CTPhieuNhap> list = new ArrayList<>();

@@ -21,7 +21,7 @@ import mathang.MatHang;
  *
  * @author DELL
  */
-public class FormPhieuNhap extends javax.swing.JFrame {
+public class SuaPhieuNhap extends javax.swing.JFrame {
 
     /**
      * Creates new form FormPhieuNhap
@@ -39,16 +39,34 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         return matHang;
     }
     
-    public FormPhieuNhap() {
+    public SuaPhieuNhap() {
         initComponents();
     }
     
-    FormPhieuNhap(QuanLiPhieuNhap aThis, boolean rootPaneCheckingEnabled){
+    SuaPhieuNhap(QuanLiPhieuNhap aThis, boolean rootPaneCheckingEnabled){
         initComponents();
         this.setLocationRelativeTo(null);
         loadData();
-        text_idPN.setText(autoIDPN());
+        text_idPN.setText(aThis.getPhieuNhap().getIdPN());
         text_idPN.setEditable(false);
+        
+        ctphieunhap.ConnectionSQL sqlCTPN = new ctphieunhap.ConnectionSQL();
+        mathang.ConnectionSQL sqlMH = new mathang.ConnectionSQL();
+        String idPN = aThis.getPhieuNhap().getIdPN();
+        ArrayList<InfoCTPN> list = sqlCTPN.getListCTPN(idPN);
+        model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // xoa bo noi dung cu cua table
+        for (InfoCTPN info : list) {
+            Object[] data = {info.getIdmathang(),info.getTenmathang(),info.getSoLuong(),info.getGia()};
+            dsSoLuong.add(info.getSoLuong());
+            dsGia.add(info.getGia().intValue());
+            model.addRow(data);
+        }
+        
+        String strSQLMH = "select ct.idmathang,mh.tenmathang,mh.ngaysanxuat,mh.hansudung " +
+                            "from ctphieunhap ct,mathang mh " +
+                            "where idpn = '" + idPN +"' and ct.idmathang = mh.idmathang";
+        dsMatHangDaThem = sqlMH.getListMH(strSQLMH);
         btn_XoaMHDaNhap.setVisible(false);
         comb_idMH_tenMH.setVisible(false);
         text_TimKiem.setVisible(false);
@@ -80,7 +98,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         table_TimKiem = new javax.swing.JTable();
         btn_Them = new javax.swing.JButton();
         btn_Huy = new javax.swing.JButton();
-        btn_XuatPhieu = new javax.swing.JButton();
+        btn_SuaPhieu = new javax.swing.JButton();
         lb_SoLuong = new javax.swing.JLabel();
         lb_Gia = new javax.swing.JLabel();
         text_SL = new javax.swing.JTextField();
@@ -133,7 +151,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -203,11 +221,11 @@ public class FormPhieuNhap extends javax.swing.JFrame {
             }
         });
 
-        btn_XuatPhieu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btn_XuatPhieu.setText("Xuất Phiếu");
-        btn_XuatPhieu.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_SuaPhieu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_SuaPhieu.setText("Sửa Phiếu");
+        btn_SuaPhieu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_XuatPhieuMouseClicked(evt);
+                btn_SuaPhieuMouseClicked(evt);
             }
         });
 
@@ -289,13 +307,13 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Huy)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_XuatPhieu)))
+                        .addComponent(btn_SuaPhieu)))
                 .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comb_NCC, text_TimKiem, text_idNV, text_idPN});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_Huy, btn_XuatPhieu});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_Huy, btn_SuaPhieu});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,14 +352,14 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Huy)
-                    .addComponent(btn_XuatPhieu)
+                    .addComponent(btn_SuaPhieu)
                     .addComponent(btn_XoaMHDaNhap))
                 .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Them, comb_NCC, text_Gia, text_TimKiem, text_idNV, text_idPN});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Huy, btn_XoaMHDaNhap, btn_XuatPhieu});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Huy, btn_SuaPhieu, btn_XoaMHDaNhap});
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lb_Gia, lb_SoLuong});
 
@@ -465,21 +483,22 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         this.matHang = null;
     }//GEN-LAST:event_btn_XoaMHDaNhapMouseClicked
 
-    private void btn_XuatPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatPhieuMouseClicked
+    private void btn_SuaPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SuaPhieuMouseClicked
         // TODO add your handling code here:
         try{
             //insert phieu nhap vao db
-            java.sql.Date date = getTime();
-            String idNCC = (String) comb_NCC.getSelectedItem();
-            idNCC = idNCC.split("-")[0];
-            PhieuNhap pn = new PhieuNhap(text_idPN.getText(), date, text_idNV.getText(),idNCC);
-            ConnectionSQL sql = new ConnectionSQL();
-            sql.insertSQL(pn);
+//            java.sql.Date date = getTime();
+//            String idNCC = (String) comb_NCC.getSelectedItem();
+//            idNCC = idNCC.split("-")[0];
+//            PhieuNhap pn = new PhieuNhap(text_idPN.getText(), date, text_idNV.getText(),idNCC);
+//            ConnectionSQL sql = new ConnectionSQL();
+//            sql.insertSQL(pn);
             
             //insert ctphieu nhap vao db
             int i = 0;
             CTPhieuNhap ctpn = new CTPhieuNhap();
             ctphieunhap.ConnectionSQL sqlCT = new ctphieunhap.ConnectionSQL();
+            sqlCT.deleteSQL(text_idPN.getText());
             ctpn.setIdPN(text_idPN.getText());
             for(MatHang mh:dsMatHangDaThem){
                 ctpn.setIdMH(mh.getIdMatHang());
@@ -490,13 +509,13 @@ public class FormPhieuNhap extends javax.swing.JFrame {
             }
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể xuất phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể sửa phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
             dispose();
         }
         qlpn.loadData();
-        JOptionPane.showMessageDialog(rootPane, "Xuất phiếu thành công!", "Message", JOptionPane.INFORMATION_MESSAGE);                
+        JOptionPane.showMessageDialog(rootPane, "Sửa phiếu thành công!", "Message", JOptionPane.INFORMATION_MESSAGE);                
         dispose();
-    }//GEN-LAST:event_btn_XuatPhieuMouseClicked
+    }//GEN-LAST:event_btn_SuaPhieuMouseClicked
 
     //tim kiem theo ma hoac ten
     private void timKiem(int columnIndex) {
@@ -607,29 +626,30 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuaPhieuNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormPhieuNhap().setVisible(true);
+                new SuaPhieuNhap().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Huy;
+    private javax.swing.JButton btn_SuaPhieu;
     private javax.swing.JButton btn_Them;
     private javax.swing.JButton btn_XoaMHDaNhap;
-    private javax.swing.JButton btn_XuatPhieu;
     private javax.swing.JComboBox<String> comb_NCC;
     private javax.swing.JComboBox<String> comb_idMH_tenMH;
     private javax.swing.JScrollPane jScrollPane2;

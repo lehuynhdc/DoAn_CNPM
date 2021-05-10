@@ -59,7 +59,5 @@ public class PhieuNhap {
 
     public void setIdNCC(String idNCC) {
         this.idNCC = idNCC;
-    }
-    
-    
+    } 
 }

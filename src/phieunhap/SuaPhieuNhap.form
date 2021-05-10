@@ -79,7 +79,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btn_Huy" linkSize="3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_XuatPhieu" linkSize="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_SuaPhieu" linkSize="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -128,7 +128,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_Huy" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_XuatPhieu" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_SuaPhieu" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_XoaMHDaNhap" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -247,8 +247,8 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="0">
                 <Column editable="false" title="       M&#xe3; m&#x1eb7;t h&#xe0;ng" type="java.lang.String"/>
-                <Column editable="true" title="       T&#xea;n m&#x1eb7;t h&#xe0;ng" type="java.lang.String"/>
-                <Column editable="true" title="             S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.String"/>
+                <Column editable="false" title="       T&#xea;n m&#x1eb7;t h&#xe0;ng" type="java.lang.String"/>
+                <Column editable="false" title="             S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.String"/>
                 <Column editable="false" title="                Gi&#xe1;" type="java.lang.String"/>
               </Table>
             </Property>
@@ -365,15 +365,15 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_HuyMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_XuatPhieu">
+    <Component class="javax.swing.JButton" name="btn_SuaPhieu">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t Phi&#x1ebf;u"/>
+        <Property name="text" type="java.lang.String" value="S&#x1eed;a Phi&#x1ebf;u"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_XuatPhieuMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_SuaPhieuMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lb_SoLuong">
