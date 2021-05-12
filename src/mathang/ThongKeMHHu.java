@@ -63,7 +63,7 @@ public class ThongKeMHHu extends javax.swing.JFrame {
         text_TongCong = new javax.swing.JTextField();
         lb_Background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thống Kê");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

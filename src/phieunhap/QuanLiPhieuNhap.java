@@ -143,6 +143,11 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         delButton.setText("Trở lại");
         delButton.setToolTipText("Remove");
         delButton.setPreferredSize(new java.awt.Dimension(87, 37));
+        delButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jButton1.setText("Info");
@@ -267,6 +272,11 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         ShowCTPN info = new ShowCTPN(this, rootPaneCheckingEnabled);
         info.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void delButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_delButtonActionPerformed
 
     //tim kiem theo ma hoac ten
     private void timKiem(int columnIndex) {

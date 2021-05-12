@@ -87,7 +87,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         text_Gia = new javax.swing.JTextField();
         btn_XoaMHDaNhap = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lb_idPN.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_idPN.setText("Mã phiếu nhập:");
@@ -133,7 +133,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {

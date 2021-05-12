@@ -56,7 +56,7 @@ public class ThongKeMHConDungDuoc extends javax.swing.JFrame {
         tb_ConDungDuoc = new javax.swing.JTable();
         background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thống Kê");
         setForeground(new java.awt.Color(153, 0, 0));
         setLocation(new java.awt.Point(0, 0));

@@ -5,17 +5,8 @@
  */
 package mathang;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ButtonGroup;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -40,6 +31,7 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         loadData();
+        delButton.setVisible(false);
     }
 
     /**
@@ -55,9 +47,9 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         searchField = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         delButton = new javax.swing.JButton();
-        delButton1 = new javax.swing.JButton();
-        thongKe = new javax.swing.JComboBox<>();
+        tkButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         background = new javax.swing.JLabel();
@@ -88,7 +80,7 @@ public class QuanLiMatHang extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 130, -1));
 
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         editButton.setText("Sửa");
@@ -100,31 +92,58 @@ public class QuanLiMatHang extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 130, -1));
+
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        backButton.setText("Trở lại");
+        backButton.setToolTipText("Remove");
+        backButton.setPreferredSize(new java.awt.Dimension(87, 37));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 130, -1));
 
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        delButton.setText("Trở lại");
+        delButton.setText("Xoá");
         delButton.setToolTipText("Remove");
-        delButton.setPreferredSize(new java.awt.Dimension(87, 37));
-        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, 100, -1));
+        delButton.setMaximumSize(new java.awt.Dimension(97, 37));
+        delButton.setMinimumSize(new java.awt.Dimension(97, 37));
+        delButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 130, -1));
 
-        delButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        delButton1.setText("Xoá");
-        delButton1.setToolTipText("Remove");
-        delButton1.setMaximumSize(new java.awt.Dimension(97, 37));
-        delButton1.setMinimumSize(new java.awt.Dimension(97, 37));
-        delButton1.setPreferredSize(new java.awt.Dimension(97, 37));
-        getContentPane().add(delButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, -1, -1));
+        tkButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        tkButton.setText("Thống Kê");
+        tkButton.setToolTipText("Remove");
+        tkButton.setMaximumSize(new java.awt.Dimension(97, 37));
+        tkButton.setMinimumSize(new java.awt.Dimension(97, 37));
+        tkButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        tkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tkButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 130, -1));
 
-        thongKe.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        thongKe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Bị hư", "Dùng được" }));
-        getContentPane().add(thongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 40));
-
-        jTable1.setBackground(new java.awt.Color(153, 255, 153));
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "Mã mặt hàng", "Tên mặt hàng", "Ngày sản xuất", "Hạn sử dụng"
@@ -199,6 +218,12 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         matHang = getDataARow();
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void tkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tkButtonActionPerformed
+        // TODO add your handling code here:
+        ThongKeForm tk = new ThongKeForm();
+        tk.setVisible(true);
+    }//GEN-LAST:event_tkButtonActionPerformed
+
     //lay du lieu tu 1 hang cua table
     public MatHang getDataARow(){
         int i = jTable1.getSelectedRow();
@@ -266,15 +291,15 @@ public class QuanLiMatHang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel background;
     private javax.swing.JButton delButton;
-    private javax.swing.JButton delButton1;
     private javax.swing.JButton editButton;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField searchField;
-    private javax.swing.JComboBox<String> thongKe;
+    private javax.swing.JButton tkButton;
     // End of variables declaration//GEN-END:variables
  
    

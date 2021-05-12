@@ -145,6 +145,13 @@ public class MatHang {
         year = strDate.split("-")[0];
     }
     
+    //convert sql.date to string
+    public String dateToString(Date date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+        String strDate = dateFormat.format(date);  
+        return strDate;
+    }
+    
     public static void main(String[] args) {
        MatHang mh = new MatHang();
 //       mh.thongKeMHBiHu();

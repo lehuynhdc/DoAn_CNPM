@@ -59,7 +59,7 @@ public class ShowCTPN extends javax.swing.JFrame {
         lb_IDPN = new javax.swing.JLabel();
         btn_Back = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -101,7 +101,7 @@ public class ShowCTPN extends javax.swing.JFrame {
         lb_IDPN.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
         btn_Back.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btn_Back.setText("Back");
+        btn_Back.setText("Trở lại");
         btn_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_BackActionPerformed(evt);

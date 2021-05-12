@@ -92,7 +92,7 @@ public class SuaMatHang extends javax.swing.JFrame {
         btn_huy = new javax.swing.JButton();
         lb_thang = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lb_nam.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lb_nam.setText("Năm:");

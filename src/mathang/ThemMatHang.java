@@ -228,7 +228,7 @@ public class ThemMatHang extends javax.swing.JFrame {
         btn_them = new javax.swing.JButton();
         btn_huy = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thêm mặt hàng");
 
         lb_idMH.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N

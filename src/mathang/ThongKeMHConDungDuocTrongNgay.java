@@ -65,11 +65,12 @@ public class ThongKeMHConDungDuocTrongNgay extends javax.swing.JFrame {
         lb_NgayKT = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thống Kê");
         setForeground(new java.awt.Color(153, 0, 0));
         setLocation(new java.awt.Point(0, 0));
         setMinimumSize(new java.awt.Dimension(1110, 430));
+        setPreferredSize(new java.awt.Dimension(1060, 376));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_TieuDe.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N

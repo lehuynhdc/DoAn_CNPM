@@ -49,6 +49,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         loadData();
         text_idPN.setText(aThis.getPhieuNhap().getIdPN());
         text_idPN.setEditable(false);
+        text_idNV.setText(aThis.getPhieuNhap().getIdNV());
         
         ctphieunhap.ConnectionSQL sqlCTPN = new ctphieunhap.ConnectionSQL();
         mathang.ConnectionSQL sqlMH = new mathang.ConnectionSQL();
@@ -105,7 +106,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         text_Gia = new javax.swing.JTextField();
         btn_XoaMHDaNhap = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lb_idPN.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_idPN.setText("Mã phiếu nhập:");
@@ -486,15 +487,16 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
     private void btn_SuaPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SuaPhieuMouseClicked
         // TODO add your handling code here:
         try{
-            //insert phieu nhap vao db
-//            java.sql.Date date = getTime();
-//            String idNCC = (String) comb_NCC.getSelectedItem();
-//            idNCC = idNCC.split("-")[0];
-//            PhieuNhap pn = new PhieuNhap(text_idPN.getText(), date, text_idNV.getText(),idNCC);
-//            ConnectionSQL sql = new ConnectionSQL();
-//            sql.insertSQL(pn);
+            //update phieu nhap vao db
+            String idNCC = (String) comb_NCC.getSelectedItem();
+            idNCC = idNCC.split("-")[0];
+            String idNV = text_idNV.getText();
+            ConnectionSQL sql = new ConnectionSQL();
+            String strUpdate = "update phieunhap set idncc = '" + idNCC + "', idnv = '"
+            + idNV + "' where idpn = '" + text_idPN.getText() + "'";
+            sql.updateSQL(strUpdate);
             
-            //insert ctphieu nhap vao db
+            //update ctphieu nhap vao db
             int i = 0;
             CTPhieuNhap ctpn = new CTPhieuNhap();
             ctphieunhap.ConnectionSQL sqlCT = new ctphieunhap.ConnectionSQL();
