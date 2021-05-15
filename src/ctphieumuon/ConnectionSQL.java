@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import phieumuon.InfoCTPM;
 
 
 /**
@@ -73,6 +74,19 @@ public class ConnectionSQL {
           }
     }
     
+    //thuc hien cau lenh delete database
+    public void deleteSQL(String idPM){
+        try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            String delete = "delete from ctphieumuon where idpm = '"+idPM+"'";
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(delete);
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+    }
+    
     //thuc hien lay danh sach phieu nhap
     public ArrayList<CTPhieuMuon> getListCTPM(){
         ArrayList<CTPhieuMuon> list = new ArrayList<>();
@@ -86,6 +100,30 @@ public class ConnectionSQL {
                 CTPhieuMuon ctpm = new CTPhieuMuon();
                 ctpm.setIdPM(rs.getString("idpm"));
                 ctpm.setIdMH(rs.getString("idmathang"));
+                ctpm.setSoLuong(rs.getInt("soluong"));
+                list.add(ctpm);
+            }   
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+        return list;
+    }
+    
+    //lay danh sach infoCTPN voi ma phieu nhap
+    public ArrayList<InfoCTPM> getListCTPM(String idPM){
+        ArrayList<InfoCTPM> list = new ArrayList<>();
+         try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
+            String select = "select ct.idmathang,mh.tenmathang,soluong " +
+                            "from ctphieumuon ct,mathang mh " +
+                            "where idpm = '" + idPM +"' and ct.idmathang = mh.idmathang";
+            ResultSet rs = stmt.executeQuery(select);
+            while(rs.next()){
+                InfoCTPM ctpm = new InfoCTPM();
+                ctpm.setIdmathang(rs.getString("idmathang"));
+                ctpm.setTenmathang(rs.getString("tenmathang"));
                 ctpm.setSoLuong(rs.getInt("soluong"));
                 list.add(ctpm);
             }   

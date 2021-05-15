@@ -50,6 +50,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         text_idPN.setText(aThis.getPhieuNhap().getIdPN());
         text_idPN.setEditable(false);
         text_idNV.setText(aThis.getPhieuNhap().getIdNV());
+        text_idNV.setEditable(false);
         
         ctphieunhap.ConnectionSQL sqlCTPN = new ctphieunhap.ConnectionSQL();
         mathang.ConnectionSQL sqlMH = new mathang.ConnectionSQL();

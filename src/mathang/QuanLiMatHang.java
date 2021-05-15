@@ -177,7 +177,7 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 740, 530));
 
         background.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/cat_toc.jpg"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/background_formQL1.jpg"))); // NOI18N
         background.setPreferredSize(new java.awt.Dimension(87, 37));
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -4, 910, 610));
 

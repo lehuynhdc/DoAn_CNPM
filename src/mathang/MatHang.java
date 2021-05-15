@@ -136,6 +136,13 @@ public class MatHang {
         return soLuongConDungDuoc > 0;
     }
     
+    public boolean ktChoMuonTB(String id,String strDate,int soLuongNhap){
+        ConnectionSQL sql = new ConnectionSQL();
+        int soLuongConDungDuoc = sql.getSLConDungDuoc(id, strDate);
+        soLuongConDungDuoc = soLuongConDungDuoc - soLuongNhap;
+        return soLuongConDungDuoc >= 0;
+    }
+    
     //convert date to string
     public void dateToString(String day,String month,String year,Date date){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
@@ -145,7 +152,7 @@ public class MatHang {
         year = strDate.split("-")[0];
     }
     
-    //convert sql.date to string
+    //convert sql.date to string yyyy-MM-dd
     public String dateToString(Date date){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
         String strDate = dateFormat.format(date);  

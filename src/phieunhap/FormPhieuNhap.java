@@ -47,8 +47,19 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         loadData();
+        java.sql.Date date = getTime();
+        mathang.MatHang mh = new MatHang();
+        String b,c,d;
+        String strDate = mh.dateToString(date);
+        b = strDate.split("-")[0];
+        c = strDate.split("-")[2];
+        d = b;
+        b = c;
+        c = d; 
+        String temp = "Ngày: " + b + "-" +strDate.split("-")[1] + "-" +d;
         text_idPN.setText(autoIDPN());
         text_idPN.setEditable(false);
+        lb_NgayLapPhieu.setText(temp);
         btn_XoaMHDaNhap.setVisible(false);
         comb_idMH_tenMH.setVisible(false);
         text_TimKiem.setVisible(false);
@@ -243,18 +254,11 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_NgayLapPhieu, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
             .addComponent(jScrollPane3)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(205, 205, 205)
-                                .addComponent(lb_PhieuNhap))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(71, 71, 71)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +271,12 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                                     .addComponent(text_idPN, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                     .addComponent(text_idNV, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                     .addComponent(comb_NCC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(text_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(text_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(205, 205, 205)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_NgayLapPhieu, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_PhieuNhap))))
                         .addGap(0, 80, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lb_SoLuong)
@@ -278,10 +287,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(text_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_Them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btn_Them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
@@ -463,6 +469,7 @@ public class FormPhieuNhap extends javax.swing.JFrame {
             j++;
         }
         this.matHang = null;
+        btn_XoaMHDaNhap.setVisible(false);
     }//GEN-LAST:event_btn_XoaMHDaNhapMouseClicked
 
     private void btn_XuatPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatPhieuMouseClicked

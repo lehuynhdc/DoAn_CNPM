@@ -175,13 +175,36 @@ public class ConnectionSQL {
         String select = "SELECT * FROM MATHANG";
         listMH = sql.getListMH(select);
         String id = "MH";
-        int i = 1,soluong;
+        int soluong;
         for(MatHang mh:listMH){
-            if(mh.ktChoMuonTB(id+String.valueOf(i),strDate)){
-                soluong = this.getSLConDungDuoc(id+String.valueOf(i),strDate);
+            if(mh.ktChoMuonTB(mh.getIdMatHang(),strDate)){
+                soluong = this.getSLConDungDuoc(mh.getIdMatHang(),strDate);
                 list.add(soluong);             
             }
-            i++;
+        }         
+        return list;
+    }
+    //lay danh sach so luong con dung duoc CO TIME yyyy-mm-dd(sau khi them vao phieu muon)
+    public ArrayList<Integer> getListSLConDungDuocAfter(String strDate,ArrayList<MatHang> listMHDaThem,ArrayList<Integer> listSL){
+        ConnectionSQL sql = new ConnectionSQL();
+        ArrayList<MatHang> listMH;
+        ArrayList<Integer> list = new ArrayList<>();
+        String select = "SELECT * FROM MATHANG";
+        listMH = sql.getListMH(select);
+        String id = "MH";
+        int soluong,j = 0;
+        for(MatHang mh:listMH){
+            if(mh.ktChoMuonTB(mh.getIdMatHang(),strDate)){
+                soluong = this.getSLConDungDuoc(mh.getIdMatHang(),strDate);
+                j = 0;
+                for(MatHang mh1:listMHDaThem){
+                    if(mh.getIdMatHang().equals(mh1.getIdMatHang())){
+                        soluong = soluong - listSL.get(j);
+                    }
+                    j++;
+                }
+                list.add(soluong);             
+            }
         }         
         return list;
     }

@@ -57,12 +57,15 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         delButton1 = new javax.swing.JButton();
         delButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comb_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         comb_TimKiem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã phiếu nhập", "Mã nhân viên" }));
         comb_TimKiem.setToolTipText("");
+        getContentPane().add(comb_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 53, -1, -1));
 
         text_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         text_TimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -70,6 +73,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 text_TimKiemKeyReleased(evt);
             }
         });
+        getContentPane().add(text_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 53, 513, -1));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -106,6 +110,8 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 138, 560, 324));
+
         addButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         addButton.setText("Thêm");
         addButton.setToolTipText("Add");
@@ -115,6 +121,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 245, -1, -1));
 
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         editButton.setText("Sửa");
@@ -126,6 +133,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 305, -1, -1));
 
         delButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         delButton1.setText("Xoá");
@@ -138,6 +146,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 delButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(delButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 365, -1, -1));
 
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         delButton.setText("Trở lại");
@@ -148,6 +157,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 delButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 425, 100, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jButton1.setText("Info");
@@ -156,56 +166,11 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 190, 97, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comb_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(text_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(delButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(delButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addButton, jButton1});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comb_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(delButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(delButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addButton, jButton1});
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieunhap/background_formQL.jpg"))); // NOI18N
+        background.setPreferredSize(new java.awt.Dimension(520, 320));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 730, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -350,6 +315,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JLabel background;
     private javax.swing.JComboBox<String> comb_TimKiem;
     private javax.swing.JButton delButton;
     private javax.swing.JButton delButton1;

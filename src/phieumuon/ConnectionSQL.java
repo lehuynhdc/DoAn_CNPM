@@ -66,7 +66,7 @@ public class ConnectionSQL {
         try {
             String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
             java.sql.Connection conn = DriverManager.getConnection(dbURL);
-            String delete = "delete from phieunhap where idpn = '"+id+"'";
+            String delete = "delete from phieumuon where idpm = '"+id+"'";
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(delete);
         } catch (SQLException ex) {
@@ -75,7 +75,7 @@ public class ConnectionSQL {
     }
     
     //thuc hien lay danh sach phieu nhap
-    public ArrayList<PhieuMuon> getListPN(){
+    public ArrayList<PhieuMuon> getListPM(){
         ArrayList<PhieuMuon> list = new ArrayList<>();
          try {
             String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
@@ -96,18 +96,36 @@ public class ConnectionSQL {
         return list;
     }
     
-    //show thong tin 1 phieu nhap    
-    public void showPN(PhieuMuon pm){
+    //show thong tin 1 phieu muon    
+    public void showPM(PhieuMuon pm){
         System.out.println(pm.getIdPM());
         System.out.println(pm.getNgayMuon());
         System.out.println(pm.getIdNV());
     }
     
-    //show thong tin danh sach mat hang
-    public void showListPN(ArrayList<PhieuMuon> list){
+    //show thong tin danh sach phieu
+    public void showListPM(ArrayList<PhieuMuon> list){
         for(PhieuMuon pm:list){
-            this.showPN(pm);
+            this.showPM(pm);
         }
+    }
+    
+    //lay ma Phieu nhap cuoi cung trong database
+    public String getLastIDPM(){
+        String lastID = null;
+         try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
+            String select = "select idpm from phieumuon";
+            ResultSet rs = stmt.executeQuery(select);
+            while(rs.next()){
+                lastID = rs.getString("idpm");
+            }   
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+        return lastID;
     }
     
     public static void main(String[] args){
@@ -119,8 +137,8 @@ public class ConnectionSQL {
             ConnectionSQL sql = new ConnectionSQL();
 //            sql.insertSQL(pm);
 //            sql.updateSQL("update phieumuon set idnv = 'NV3' where idpm = 'PM2'");
-            list = sql.getListPN();
-            sql.showListPN(list);
+            list = sql.getListPM();
+            sql.showListPM(list);
         } catch (ParseException ex) {
             Logger.getLogger(phieunhap.ConnectionSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
