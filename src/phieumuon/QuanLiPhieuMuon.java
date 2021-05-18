@@ -214,6 +214,10 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
+        if(this.getPhieuMuon() == null){
+            JOptionPane.showMessageDialog(rootPane, "Phải chọn 1 phiếu mượn để sửa thông tin!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
+            return;
+        }
         SuaPhieuMuon spm = new SuaPhieuMuon(this,rootPaneCheckingEnabled);
         spm.setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed

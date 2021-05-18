@@ -209,6 +209,10 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
+        if(this.getPhieuNhap() == null){
+            JOptionPane.showMessageDialog(rootPane, "Phải chọn 1 phiếu nhập để sửa thông tin!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
+            return;
+        }
         SuaPhieuNhap spn = new SuaPhieuNhap(this,rootPaneCheckingEnabled);
         spn.setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed

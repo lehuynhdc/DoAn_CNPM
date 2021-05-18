@@ -30,9 +30,12 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
     private QuanLiPhieuNhap qlpn;
     private ArrayList<MatHang> dsMatHang;
     private ArrayList<MatHang> dsMatHangDaThem = new ArrayList<>();
+    private ArrayList<MatHang> dsMatHangDaThemTemp = new ArrayList<>();
     private MatHang matHang;
-    private ArrayList<Integer> dsSoLuong = new ArrayList<>();;
-    private ArrayList<Integer> dsGia= new ArrayList<>();;
+    private ArrayList<Integer> dsSoLuong = new ArrayList<>();
+    private ArrayList<Integer> dsSoLuongTemp = new ArrayList<>();
+    private ArrayList<Integer> dsGia = new ArrayList<>();
+    private ArrayList<Integer> dsGiaTemp = new ArrayList<>();
     private Integer index;
 
     public MatHang getMatHang() {
@@ -61,7 +64,9 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         for (InfoCTPN info : list) {
             Object[] data = {info.getIdmathang(),info.getTenmathang(),info.getSoLuong(),info.getGia()};
             dsSoLuong.add(info.getSoLuong());
+            dsSoLuongTemp.add(info.getSoLuong());
             dsGia.add(info.getGia().intValue());
+            dsGiaTemp.add(info.getGia().intValue());
             model.addRow(data);
         }
         
@@ -69,6 +74,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                             "from ctphieunhap ct,mathang mh " +
                             "where idpn = '" + idPN +"' and ct.idmathang = mh.idmathang";
         dsMatHangDaThem = sqlMH.getListMH(strSQLMH);
+        dsMatHangDaThemTemp = sqlMH.getListMH(strSQLMH);
         btn_XoaMHDaNhap.setVisible(false);
         comb_idMH_tenMH.setVisible(false);
         text_TimKiem.setVisible(false);
@@ -232,7 +238,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 btn_ThemMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 478, 97, 34));
+        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 478, 97, 40));
 
         btn_Huy.setBackground(new java.awt.Color(255, 255, 255));
         btn_Huy.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -361,6 +367,26 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
 
     private void btn_HuyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HuyMouseClicked
         // TODO add your handling code here
+        try{
+            //update ctphieu nhap vao db
+            int i = 0;
+            CTPhieuNhap ctpn = new CTPhieuNhap();
+            ctphieunhap.ConnectionSQL sqlCT = new ctphieunhap.ConnectionSQL();
+            sqlCT.deleteSQL(text_idPN.getText());
+            ctpn.setIdPN(text_idPN.getText());
+            for(MatHang mh:dsMatHangDaThemTemp){
+                ctpn.setIdMH(mh.getIdMatHang());
+                ctpn.setSoLuong(dsSoLuongTemp.get(i));
+                ctpn.setGia(BigDecimal.valueOf(dsGiaTemp.get(i)));
+                sqlCT.insertSQL(ctpn);
+                i++;
+            }
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể backup phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+            dispose();
+        }
+        qlpn.loadData();
         dispose();
     }//GEN-LAST:event_btn_HuyMouseClicked
 
@@ -393,9 +419,11 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
     private void btn_XoaMHDaNhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XoaMHDaNhapMouseClicked
         // TODO add your handling code here:
         int i = 0,j = 0;
+        ctphieunhap.ConnectionSQL sql = new ctphieunhap.ConnectionSQL();
         for(MatHang mh:dsMatHangDaThem){
             if(mh.getIdMatHang().equals(matHang.getIdMatHang())){
                 dsMatHangDaThem.remove(i);
+                sql.deleteSQL(text_idPN.getText(), matHang.getIdMatHang());
                 break;
             }
             i++;
@@ -409,11 +437,37 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
             model.addRow(data);
             j++;
         }
+        btn_XoaMHDaNhap.setVisible(false);
         this.matHang = null;
     }//GEN-LAST:event_btn_XoaMHDaNhapMouseClicked
 
     private void btn_SuaPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SuaPhieuMouseClicked
         // TODO add your handling code here:
+        if(dsMatHangDaThem.size() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể sửa phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+            try{
+                //update ctphieu nhap vao db
+                int i = 0;
+                CTPhieuNhap ctpn = new CTPhieuNhap();
+                ctphieunhap.ConnectionSQL sqlCT = new ctphieunhap.ConnectionSQL();
+                sqlCT.deleteSQL(text_idPN.getText());
+                ctpn.setIdPN(text_idPN.getText());
+                for(MatHang mh:dsMatHangDaThemTemp){
+                    ctpn.setIdMH(mh.getIdMatHang());
+                    ctpn.setSoLuong(dsSoLuongTemp.get(i));
+                    ctpn.setGia(BigDecimal.valueOf(dsGiaTemp.get(i)));
+                    sqlCT.insertSQL(ctpn);
+                    i++;
+                }
+            }
+            catch(Exception ex){
+                JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể backup phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+                dispose();
+            }
+            qlpn.loadData();
+            dispose();
+            return;
+        }
         try{
             //update phieu nhap vao db
             String idNCC = (String) comb_NCC.getSelectedItem();

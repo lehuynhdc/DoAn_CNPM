@@ -232,9 +232,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Tr&#x1edf; l&#x1ea1;i"/>
         <Property name="toolTipText" type="java.lang.String" value="Remove"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[125, 37]"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>

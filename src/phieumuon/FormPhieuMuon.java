@@ -224,7 +224,7 @@ public class FormPhieuMuon extends javax.swing.JFrame {
                 btn_ThemMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 478, 129, 34));
+        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 478, 129, 40));
 
         btn_Huy.setBackground(new java.awt.Color(255, 255, 255));
         btn_Huy.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -383,6 +383,11 @@ public class FormPhieuMuon extends javax.swing.JFrame {
 
     private void btn_XuatPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatPhieuMouseClicked
         // TODO add your handling code here:
+        if(dsMatHangDaThem.size() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể xuất phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+            dispose();
+            return;
+        }
         try{
             //insert phieu muon vao db
             java.sql.Date date = getTime();

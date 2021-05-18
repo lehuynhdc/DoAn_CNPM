@@ -61,7 +61,7 @@ public class ConnectionSQL {
           }
     }
     
-    //thuc hien cau lenh delete database
+    //thuc hien cau lenh delete database voi ma id
     public void deleteSQL(String id){
         try {
             String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";

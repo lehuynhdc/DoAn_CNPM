@@ -7,6 +7,7 @@ package mathang;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -222,6 +223,10 @@ public class QuanLiMatHang extends javax.swing.JFrame {
     //thuc hien khi bam nut sua
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
+        if(this.getMatHang() == null){
+            JOptionPane.showMessageDialog(rootPane, "Phải chọn 1 mặt hàng để sửa thông tin!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
+            return;
+        }
         SuaMatHang smh = new SuaMatHang(this, rootPaneCheckingEnabled);
         smh.setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed

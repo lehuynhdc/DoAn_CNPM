@@ -39,8 +39,10 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
     private DefaultTableModel model;
     private ArrayList<MatHang> dsMatHang;
     private ArrayList<MatHang> dsMatHangDaThem = new ArrayList<>();
+    private ArrayList<MatHang> dsMatHangDaThemTemp = new ArrayList<>();
     private MatHang matHang;
     private ArrayList<Integer> dsSoLuong = new ArrayList<>();
+    private ArrayList<Integer> dsSoLuongTemp = new ArrayList<>();
     private Integer index;
     private QuanLiPhieuMuon qlpm;
 
@@ -92,7 +94,6 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
         c = strDate.split("-")[2];
         String temp = "Ngày: " + c + "-" +strDate.split("-")[1] + "-" +b;
         lb_NgayLapPhieu.setText(temp);
-        lb_NgayLapPhieu.setVisible(false);
         text_idPM.setText(aThis.getPhieuMuon().getIdPM());
         text_idPM.setEditable(false);
         text_idNV.setText(aThis.getPhieuMuon().getIdNV());
@@ -109,13 +110,15 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
         for (InfoCTPM info : list) {
             Object[] data = {info.getIdmathang(),info.getTenmathang(),info.getSoLuong()};
             dsSoLuong.add(info.getSoLuong());
+            dsSoLuongTemp.add(info.getSoLuong());
             model.addRow(data);
         }
         
-        String strSQLMH = "select ct.idmathang,mh.tenmathang,mh.ngaysanxuat,mh.hansudung " +
-                            "from ctphieunhap ct,mathang mh " +
-                            "where idpn = '" + idPM +"' and ct.idmathang = mh.idmathang";
+        String strSQLMH = "select mh.idmathang,mh.tenmathang,mh.ngaysanxuat,mh.hansudung " +
+                            "from ctphieumuon ct,mathang mh " +
+                            "where idpm = '" + idPM +"' and ct.idmathang = mh.idmathang";
         dsMatHangDaThem = sqlMH.getListMH(strSQLMH);
+        dsMatHangDaThemTemp = sqlMH.getListMH(strSQLMH);
         qlpm = aThis;
     }
 
@@ -150,8 +153,8 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Quản Lí PHiếu Mượn");
-        setMinimumSize(new java.awt.Dimension(710, 870));
-        setPreferredSize(new java.awt.Dimension(710, 870));
+        setMinimumSize(new java.awt.Dimension(730, 915));
+        setPreferredSize(new java.awt.Dimension(725, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_idPM.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -266,7 +269,7 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
                 btn_ThemMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 478, 129, 34));
+        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 478, 129, 40));
 
         btn_Huy.setBackground(new java.awt.Color(255, 255, 255));
         btn_Huy.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -385,6 +388,24 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
 
     private void btn_HuyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HuyMouseClicked
         // TODO add your handling code here
+        try{
+            //backup lai ctphieu muon vao db
+            int i = 0;
+            CTPhieuMuon ctpm = new CTPhieuMuon();
+            ctphieumuon.ConnectionSQL sqlCT = new ctphieumuon.ConnectionSQL();
+            sqlCT.deleteSQL(text_idPM.getText());
+            ctpm.setIdPM(text_idPM.getText());
+            for(MatHang mh:dsMatHangDaThemTemp){
+                ctpm.setIdMH(mh.getIdMatHang());
+                ctpm.setSoLuong(dsSoLuongTemp.get(i));
+                sqlCT.insertSQL(ctpm);
+                i++;
+            }
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể backup phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+            dispose();
+        }
         dispose();
     }//GEN-LAST:event_btn_HuyMouseClicked
 
@@ -397,9 +418,11 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
     private void btn_XoaMHDaNhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XoaMHDaNhapMouseClicked
         // TODO add your handling code here:
         int i = 0,j = 0;
+        ctphieumuon.ConnectionSQL sql = new ctphieumuon.ConnectionSQL();
         for(MatHang mh:dsMatHangDaThem){
             if(mh.getIdMatHang().equals(matHang.getIdMatHang())){
                 dsMatHangDaThem.remove(i);
+                sql.deleteSQL(this.text_idPM.getText(),matHang.getIdMatHang());
                 break;
             }
             i++;
@@ -424,6 +447,29 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
 
     private void btn_SuaPhieuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SuaPhieuMouseClicked
         // TODO add your handling code here:
+        if(dsMatHangDaThem.size() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể sửa phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+            try{
+                //backup lai ctphieu muon vao db
+                int i = 0;
+                CTPhieuMuon ctpm = new CTPhieuMuon();
+                ctphieumuon.ConnectionSQL sqlCT = new ctphieumuon.ConnectionSQL();
+                sqlCT.deleteSQL(text_idPM.getText());
+                ctpm.setIdPM(text_idPM.getText());
+                for(MatHang mh:dsMatHangDaThemTemp){
+                    ctpm.setIdMH(mh.getIdMatHang());
+                    ctpm.setSoLuong(dsSoLuongTemp.get(i));
+                    sqlCT.insertSQL(ctpm);
+                    i++;
+                }
+            }
+            catch(Exception ex){
+                JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra không thể backup phiếu. Vui lòng thực hiện lại!", "Lỗi", JOptionPane.ERROR_MESSAGE);        
+                dispose();
+            }
+            dispose();
+            return;
+        }
         try{
             //update phieu muon vao db
 //            java.sql.Date date = getTime();
