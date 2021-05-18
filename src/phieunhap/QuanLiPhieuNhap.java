@@ -54,12 +54,13 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        delButton1 = new javax.swing.JButton();
         delButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        infoButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lí Phiếu Nhập");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comb_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -112,61 +113,77 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 138, 560, 324));
 
+        addButton.setBackground(new java.awt.Color(255, 255, 255));
         addButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/them.png"))); // NOI18N
         addButton.setText("Thêm");
         addButton.setToolTipText("Add");
-        addButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        addButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        addButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        addButton.setPreferredSize(new java.awt.Dimension(125, 37));
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 245, -1, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 130, -1));
 
+        editButton.setBackground(new java.awt.Color(255, 255, 255));
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/edit.png"))); // NOI18N
         editButton.setText("Sửa");
         editButton.setToolTipText("Edit");
-        editButton.setMinimumSize(new java.awt.Dimension(87, 37));
-        editButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        editButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        editButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        editButton.setPreferredSize(new java.awt.Dimension(125, 37));
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 305, -1, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 130, -1));
 
-        delButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        delButton1.setText("Xoá");
-        delButton1.setToolTipText("Remove");
-        delButton1.setMaximumSize(new java.awt.Dimension(97, 37));
-        delButton1.setMinimumSize(new java.awt.Dimension(97, 37));
-        delButton1.setPreferredSize(new java.awt.Dimension(97, 37));
-        delButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(delButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 365, -1, -1));
-
+        delButton.setBackground(new java.awt.Color(255, 255, 255));
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        delButton.setText("Trở lại");
+        delButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/delete2.png"))); // NOI18N
+        delButton.setText("Xoá");
         delButton.setToolTipText("Remove");
-        delButton.setPreferredSize(new java.awt.Dimension(87, 37));
+        delButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        delButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        delButton.setPreferredSize(new java.awt.Dimension(125, 37));
         delButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 425, 100, -1));
+        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 130, -1));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton1.setText("Info");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(255, 255, 255));
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/back.png"))); // NOI18N
+        backButton.setText("Trở lại");
+        backButton.setToolTipText("Remove");
+        backButton.setPreferredSize(new java.awt.Dimension(125, 37));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 190, 97, -1));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 130, -1));
+
+        infoButton.setBackground(new java.awt.Color(255, 255, 255));
+        infoButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        infoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
+        infoButton.setText("Info");
+        infoButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        infoButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        infoButton.setPreferredSize(new java.awt.Dimension(125, 37));
+        infoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(infoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 130, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieunhap/background_formQL.jpg"))); // NOI18N
         background.setPreferredSize(new java.awt.Dimension(520, 320));
@@ -207,7 +224,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         phieuNhap = getDataARow();
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void delButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delButton1ActionPerformed
+    private void delButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delButtonActionPerformed
         // TODO add your handling code here:
         if(this.getPhieuNhap() == null){
             JOptionPane.showMessageDialog(rootPane, "Phải chọn 1 phiếu nhập để xóa!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
@@ -226,9 +243,9 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
             loadData();
             JOptionPane.showMessageDialog(rootPane, "Phiếu nhập đã xóa thành công!", "Message", JOptionPane.INFORMATION_MESSAGE);
         }            
-    }//GEN-LAST:event_delButton1ActionPerformed
+    }//GEN-LAST:event_delButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
         // TODO add your handling code here:
         if(this.getPhieuNhap() == null){
             JOptionPane.showMessageDialog(rootPane, "Phải chọn 1 phiếu nhập để xem thông tin!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
@@ -236,12 +253,12 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
         }
         ShowCTPN info = new ShowCTPN(this, rootPaneCheckingEnabled);
         info.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_infoButtonActionPerformed
 
-    private void delButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delButtonActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_delButtonActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
 
     //tim kiem theo ma hoac ten
     private void timKiem(int columnIndex) {
@@ -315,12 +332,12 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel background;
     private javax.swing.JComboBox<String> comb_TimKiem;
     private javax.swing.JButton delButton;
-    private javax.swing.JButton delButton1;
     private javax.swing.JButton editButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton infoButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField text_TimKiem;

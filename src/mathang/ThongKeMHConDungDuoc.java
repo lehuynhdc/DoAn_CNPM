@@ -84,7 +84,7 @@ public class ThongKeMHConDungDuoc extends javax.swing.JFrame {
         tb_ConDungDuoc.setRowHeight(30);
         jScrollPane1.setViewportView(tb_ConDungDuoc);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 988, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 988, 240));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/thongkehu.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -100, 1100, 580));

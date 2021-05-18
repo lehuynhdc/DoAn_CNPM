@@ -104,6 +104,7 @@ public class ThongKeMHHu extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 990, 200));
 
         lb_TongCong.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lb_TongCong.setForeground(new java.awt.Color(153, 0, 0));
         lb_TongCong.setText("Tổng Cộng: ");
         getContentPane().add(lb_TongCong, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 330, -1, 40));
 

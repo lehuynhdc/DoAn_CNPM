@@ -58,8 +58,11 @@ public class ShowCTPN extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         lb_IDPN = new javax.swing.JLabel();
         btn_Back = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Thông Tin");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,41 +101,25 @@ public class ShowCTPN extends javax.swing.JFrame {
         jTable1.setRowHeight(30);
         jScrollPane2.setViewportView(jTable1);
 
-        lb_IDPN.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 71, 714, 360));
 
+        lb_IDPN.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lb_IDPN.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(lb_IDPN, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 23, 286, 30));
+
+        btn_Back.setBackground(new java.awt.Color(255, 255, 255));
         btn_Back.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/back.png"))); // NOI18N
         btn_Back.setText("Trở lại");
         btn_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_BackActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 450, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_Back)
-                .addGap(23, 23, 23))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(lb_IDPN, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(lb_IDPN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Back)
-                .addGap(12, 12, 12))
-        );
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieunhap/background_formQL.jpg"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,6 +165,7 @@ public class ShowCTPN extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton btn_Back;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

@@ -227,56 +227,87 @@ public class ThemMatHang extends javax.swing.JFrame {
         lb_HSD = new javax.swing.JLabel();
         btn_them = new javax.swing.JButton();
         btn_huy = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thêm mặt hàng");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_idMH.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lb_idMH.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lb_idMH.setForeground(new java.awt.Color(255, 0, 0));
         lb_idMH.setText("Mã mặt hàng:");
+        getContentPane().add(lb_idMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         text_idMH.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_idMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 37, 287, -1));
 
-        lb_tenMH.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lb_tenMH.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lb_tenMH.setForeground(new java.awt.Color(255, 0, 0));
         lb_tenMH.setText("Tên mặt hàng:");
+        getContentPane().add(lb_tenMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         text_tenMH.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_tenMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 89, 287, -1));
 
-        lb_NSX.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lb_NSX.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lb_NSX.setForeground(new java.awt.Color(255, 0, 0));
         lb_NSX.setText("Ngày sản xuất:");
+        getContentPane().add(lb_NSX, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         text_ngaySX.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_ngaySX, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 141, 43, -1));
 
         text_thangSX.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_thangSX, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 141, 43, -1));
 
         text_namSX.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_namSX, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 141, 70, -1));
 
-        lb_ngay.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lb_ngay.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb_ngay.setForeground(new java.awt.Color(255, 0, 0));
         lb_ngay.setText("Ngày:");
+        getContentPane().add(lb_ngay, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 146, -1, -1));
 
-        lb_thang.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lb_thang.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb_thang.setForeground(new java.awt.Color(255, 0, 0));
         lb_thang.setText("Tháng:");
+        getContentPane().add(lb_thang, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 149, 54, -1));
 
-        lb_nam.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lb_nam.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb_nam.setForeground(new java.awt.Color(255, 0, 0));
         lb_nam.setText("Năm:");
+        getContentPane().add(lb_nam, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 149, -1, -1));
 
         text_ngaySD.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_ngaySD, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 193, 43, -1));
 
         text_thangSD.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_thangSD, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 193, 43, -1));
 
         text_namSD.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_namSD, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 193, 70, -1));
 
-        lb_ngay1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lb_ngay1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb_ngay1.setForeground(new java.awt.Color(255, 0, 0));
         lb_ngay1.setText("Ngày:");
+        getContentPane().add(lb_ngay1, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 198, -1, -1));
 
-        lb_thang1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lb_thang1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb_thang1.setForeground(new java.awt.Color(255, 0, 0));
         lb_thang1.setText("Tháng:");
+        getContentPane().add(lb_thang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 201, 54, -1));
 
-        lb_nam1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lb_nam1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb_nam1.setForeground(new java.awt.Color(255, 0, 0));
         lb_nam1.setText("Năm:");
+        getContentPane().add(lb_nam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 201, -1, -1));
 
-        lb_HSD.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lb_HSD.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lb_HSD.setForeground(new java.awt.Color(255, 0, 0));
         lb_HSD.setText("Hạn sử dụng:");
+        getContentPane().add(lb_HSD, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
+        btn_them.setBackground(new java.awt.Color(0, 102, 0));
         btn_them.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btn_them.setText("Thêm");
         btn_them.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +315,9 @@ public class ThemMatHang extends javax.swing.JFrame {
                 btn_themActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_them, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 245, -1, -1));
 
+        btn_huy.setBackground(new java.awt.Color(0, 102, 0));
         btn_huy.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btn_huy.setText("Hủy");
         btn_huy.addActionListener(new java.awt.event.ActionListener() {
@@ -292,104 +325,10 @@ public class ThemMatHang extends javax.swing.JFrame {
                 btn_huyActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_huy, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 245, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb_tenMH)
-                            .addComponent(lb_idMH))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(text_tenMH, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                            .addComponent(text_idMH)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lb_NSX)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lb_ngay)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(text_ngaySX, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lb_thang, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(text_thangSX, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lb_nam)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(text_namSX, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lb_HSD)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lb_ngay1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(text_ngaySD, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btn_them)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_huy))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lb_thang1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_thangSD, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lb_nam1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_namSD, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {text_ngaySX, text_thangSX});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_idMH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_idMH))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(text_tenMH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_tenMH))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lb_NSX)
-                        .addComponent(lb_ngay))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(text_thangSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(text_ngaySX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lb_thang))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(text_namSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lb_nam)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lb_HSD)
-                        .addComponent(lb_ngay1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(text_thangSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(text_ngaySD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lb_thang1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(text_namSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lb_nam1)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_huy)
-                    .addComponent(btn_them))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {text_namSX, text_ngaySX, text_thangSX});
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/Formthem.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -456,6 +395,7 @@ public class ThemMatHang extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_huy;
     private javax.swing.JButton btn_them;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lb_HSD;
     private javax.swing.JLabel lb_NSX;
     private javax.swing.JLabel lb_idMH;

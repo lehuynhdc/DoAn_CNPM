@@ -291,7 +291,7 @@ public class ConnectionSQL {
     //lay ma mat hang cuoi cung trong database
     public String getLastIDMH(){
         ArrayList<String> list = new ArrayList<>();
-        String lastID = null;
+        String lastID = "MH0";
          try {
             String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
             java.sql.Connection conn = DriverManager.getConnection(dbURL);
@@ -299,12 +299,39 @@ public class ConnectionSQL {
             String select = "select idmathang from mathang";
             ResultSet rs = stmt.executeQuery(select);
             while(rs.next()){
-                lastID = rs.getString("idmathang");
+                String tempID = rs.getString("idmathang");
+                int cmp = this.stringCompare(tempID, lastID);
+                if(cmp > 0){
+                    lastID = tempID;
+                }
             }   
         } catch (SQLException ex) {
             System.err.println("Cannot connect database, " + ex);
           }
         return lastID;
+    }
+    
+    //compare 2 string voi nhau str1>str2 => soduong, nguoc lai soam, bang thi => 0
+    public int stringCompare(String str1, String str2) {
+        int l1 = str1.length();
+        int l2 = str2.length();
+        int lmin = Math.min(l1, l2);
+        if(l1 < l2){
+            return -1;
+        }
+        for (int i = 0; i < lmin; i++) {
+            int str1_ch = (int) str1.charAt(i);
+            int str2_ch = (int) str2.charAt(i);
+            if (str1_ch != str2_ch) {
+                return str1_ch - str2_ch;
+            }
+        }
+        if (l1 != l2) {
+            return l1 - l2;
+        }
+        else {
+            return 0;
+        }
     }
     
     //them 1 mat hang vao database

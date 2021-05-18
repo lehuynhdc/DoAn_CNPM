@@ -65,6 +65,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quản Lí Phiếu Mượn");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comb_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -117,10 +118,14 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 138, 560, 324));
 
+        addButton.setBackground(new java.awt.Color(255, 255, 255));
         addButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/them.png"))); // NOI18N
         addButton.setText("Thêm");
         addButton.setToolTipText("Add");
-        addButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        addButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        addButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        addButton.setPreferredSize(new java.awt.Dimension(125, 37));
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
@@ -128,11 +133,14 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         });
         getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 245, -1, -1));
 
+        editButton.setBackground(new java.awt.Color(255, 255, 255));
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/edit.png"))); // NOI18N
         editButton.setText("Sửa");
         editButton.setToolTipText("Edit");
-        editButton.setMinimumSize(new java.awt.Dimension(87, 37));
-        editButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        editButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        editButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        editButton.setPreferredSize(new java.awt.Dimension(125, 37));
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -140,12 +148,14 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         });
         getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 305, -1, -1));
 
+        delButton.setBackground(new java.awt.Color(255, 255, 255));
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        delButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/delete2.png"))); // NOI18N
         delButton.setText("Xoá");
         delButton.setToolTipText("Remove");
-        delButton.setMaximumSize(new java.awt.Dimension(97, 37));
-        delButton.setMinimumSize(new java.awt.Dimension(97, 37));
-        delButton.setPreferredSize(new java.awt.Dimension(97, 37));
+        delButton.setMaximumSize(new java.awt.Dimension(125, 37));
+        delButton.setMinimumSize(new java.awt.Dimension(125, 37));
+        delButton.setPreferredSize(new java.awt.Dimension(125, 37));
         delButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delButtonActionPerformed(evt);
@@ -153,7 +163,9 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         });
         getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 365, -1, -1));
 
+        backButton.setBackground(new java.awt.Color(255, 255, 255));
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/back.png"))); // NOI18N
         backButton.setText("Trở lại");
         backButton.setToolTipText("Remove");
         backButton.setPreferredSize(new java.awt.Dimension(87, 37));
@@ -162,16 +174,21 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 425, 100, -1));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 425, 130, -1));
 
+        btn_Info.setBackground(new java.awt.Color(255, 255, 255));
         btn_Info.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_Info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
         btn_Info.setText("Info");
+        btn_Info.setMaximumSize(new java.awt.Dimension(125, 37));
+        btn_Info.setMinimumSize(new java.awt.Dimension(125, 37));
+        btn_Info.setPreferredSize(new java.awt.Dimension(125, 37));
         btn_Info.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InfoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 190, 97, -1));
+        getContentPane().add(btn_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 190, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieumuon/background_formQL.jpg"))); // NOI18N
         background.setText("jLabel1");

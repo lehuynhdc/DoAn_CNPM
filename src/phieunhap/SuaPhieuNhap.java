@@ -106,32 +106,44 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         text_SL = new javax.swing.JTextField();
         text_Gia = new javax.swing.JTextField();
         btn_XoaMHDaNhap = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Quản Lí Phiếu Nhập");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_idPN.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_idPN.setText("Mã phiếu nhập:");
+        getContentPane().add(lb_idPN, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 152, -1, -1));
 
         text_idPN.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_idPN, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 149, 206, -1));
 
         lb_idNV.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_idNV.setText("Mã nhân viên:");
+        getContentPane().add(lb_idNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 204, -1, -1));
 
         text_idNV.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(text_idNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 201, 206, -1));
 
         lb_idNCC.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_idNCC.setText("Mã nhà cung cấp:");
+        getContentPane().add(lb_idNCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 259, -1, -1));
 
         lb_PhieuNhap.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         lb_PhieuNhap.setText("Phiếu Nhập");
+        getContentPane().add(lb_PhieuNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 42, -1, -1));
 
         lb_NgayLapPhieu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(lb_NgayLapPhieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 97, 242, 34));
 
         comb_NCC.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         comb_NCC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NCC1-Ngà", "NCC2-Đức" }));
+        getContentPane().add(comb_NCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 253, 206, -1));
 
         comb_idMH_tenMH.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         comb_idMH_tenMH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã mặt hàng", "Tên mặt hàng" }));
+        getContentPane().add(comb_idMH_tenMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 305, -1, 37));
 
         text_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         text_TimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -139,6 +151,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 text_TimKiemKeyReleased(evt);
             }
         });
+        getContentPane().add(text_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 305, 206, -1));
 
         jTable1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -171,6 +184,8 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 569, 272));
 
         table_TimKiem.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         table_TimKiem.setModel(new javax.swing.table.DefaultTableModel(
@@ -206,6 +221,9 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(table_TimKiem);
 
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 349, 581, 122));
+
+        btn_Them.setBackground(new java.awt.Color(255, 255, 255));
         btn_Them.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_Them.setText("Thêm");
         btn_Them.setFocusTraversalPolicyProvider(true);
@@ -214,7 +232,9 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 btn_ThemMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 478, 97, 34));
 
+        btn_Huy.setBackground(new java.awt.Color(255, 255, 255));
         btn_Huy.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_Huy.setText("Hủy");
         btn_Huy.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,7 +242,9 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 btn_HuyMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_Huy, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 815, 129, -1));
 
+        btn_SuaPhieu.setBackground(new java.awt.Color(255, 255, 255));
         btn_SuaPhieu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_SuaPhieu.setText("Sửa Phiếu");
         btn_SuaPhieu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,12 +252,15 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 btn_SuaPhieuMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_SuaPhieu, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 815, -1, -1));
 
         lb_SoLuong.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_SoLuong.setText("Số lượng: ");
+        getContentPane().add(lb_SoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 481, -1, -1));
 
         lb_Gia.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_Gia.setText("Giá:");
+        getContentPane().add(lb_Gia, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 481, -1, -1));
 
         text_SL.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         text_SL.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -243,6 +268,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 text_SLKeyReleased(evt);
             }
         });
+        getContentPane().add(text_SL, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 478, 131, -1));
 
         text_Gia.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         text_Gia.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -250,7 +276,9 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 text_GiaKeyReleased(evt);
             }
         });
+        getContentPane().add(text_Gia, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 478, 145, -1));
 
+        btn_XoaMHDaNhap.setBackground(new java.awt.Color(255, 255, 255));
         btn_XoaMHDaNhap.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_XoaMHDaNhap.setText("Xóa");
         btn_XoaMHDaNhap.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,112 +286,11 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
                 btn_XoaMHDaNhapMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_XoaMHDaNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 815, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_NgayLapPhieu, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
-            .addComponent(jScrollPane3)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(205, 205, 205)
-                                .addComponent(lb_PhieuNhap))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lb_idPN)
-                                    .addComponent(lb_idNV)
-                                    .addComponent(lb_idNCC)
-                                    .addComponent(comb_idMH_tenMH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(text_idPN, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                    .addComponent(text_idNV, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                    .addComponent(comb_NCC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(text_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 80, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lb_SoLuong)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(text_SL, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(lb_Gia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(text_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_Them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_XoaMHDaNhap)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Huy)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_SuaPhieu)))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comb_NCC, text_TimKiem, text_idNV, text_idPN});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_Huy, btn_SuaPhieu});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lb_PhieuNhap)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lb_NgayLapPhieu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_idPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_idPN))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_idNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_idNV))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb_idNCC)
-                    .addComponent(comb_NCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comb_idMH_tenMH, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_TimKiem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lb_SoLuong)
-                    .addComponent(text_SL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_Gia)
-                    .addComponent(text_Gia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Them, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Huy)
-                    .addComponent(btn_SuaPhieu)
-                    .addComponent(btn_XoaMHDaNhap))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Them, comb_NCC, text_Gia, text_TimKiem, text_idNV, text_idPN});
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Huy, btn_SuaPhieu, btn_XoaMHDaNhap});
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lb_Gia, lb_SoLuong});
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieunhap/FormSua.jpg"))); // NOI18N
+        background.setText("jLabel1");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 870));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -649,6 +576,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton btn_Huy;
     private javax.swing.JButton btn_SuaPhieu;
     private javax.swing.JButton btn_Them;

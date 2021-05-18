@@ -44,6 +44,7 @@ public class ThongKeForm extends javax.swing.JFrame {
         btn_ShowTrongNgay.setBackground(new java.awt.Color(102, 153, 255));
         btn_ShowTrongNgay.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_ShowTrongNgay.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ShowTrongNgay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
         btn_ShowTrongNgay.setText("Show");
         btn_ShowTrongNgay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class ThongKeForm extends javax.swing.JFrame {
         btn_ShowHu.setBackground(new java.awt.Color(102, 153, 255));
         btn_ShowHu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_ShowHu.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ShowHu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
         btn_ShowHu.setText("Show");
         btn_ShowHu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +83,7 @@ public class ThongKeForm extends javax.swing.JFrame {
         btn_ShowConDungDuoc.setBackground(new java.awt.Color(102, 153, 255));
         btn_ShowConDungDuoc.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btn_ShowConDungDuoc.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ShowConDungDuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
         btn_ShowConDungDuoc.setText("Show");
         btn_ShowConDungDuoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +94,7 @@ public class ThongKeForm extends javax.swing.JFrame {
 
         lb_ThongKe.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_ThongKe.setForeground(new java.awt.Color(255, 255, 255));
-        lb_ThongKe.setText("Thông Kê");
+        lb_ThongKe.setText("Thống Kê");
         getContentPane().add(lb_ThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 13, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/thongke.jpg"))); // NOI18N

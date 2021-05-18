@@ -54,7 +54,7 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Quản lí mặt hàng");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,7 +71,9 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         });
         getContentPane().add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 560, -1));
 
+        addButton.setBackground(new java.awt.Color(255, 255, 255));
         addButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/them.png"))); // NOI18N
         addButton.setText("Thêm");
         addButton.setToolTipText("Add");
         addButton.setPreferredSize(new java.awt.Dimension(97, 37));
@@ -82,11 +84,12 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         });
         getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 130, -1));
 
+        editButton.setBackground(new java.awt.Color(255, 255, 255));
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/edit.png"))); // NOI18N
         editButton.setText("Sửa");
         editButton.setToolTipText("Edit");
         editButton.setMinimumSize(new java.awt.Dimension(87, 37));
-        editButton.setPreferredSize(new java.awt.Dimension(97, 37));
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -94,13 +97,22 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         });
         getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 130, -1));
 
+        backButton.setBackground(new java.awt.Color(255, 255, 255));
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/back.png"))); // NOI18N
         backButton.setText("Trở lại");
         backButton.setToolTipText("Remove");
         backButton.setPreferredSize(new java.awt.Dimension(87, 37));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 130, -1));
 
+        delButton.setBackground(new java.awt.Color(255, 255, 255));
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        delButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/delete2.png"))); // NOI18N
         delButton.setText("Xoá");
         delButton.setToolTipText("Remove");
         delButton.setMaximumSize(new java.awt.Dimension(97, 37));
@@ -108,6 +120,7 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         delButton.setPreferredSize(new java.awt.Dimension(97, 37));
         getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 130, -1));
 
+        tkButton.setBackground(new java.awt.Color(255, 255, 255));
         tkButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         tkButton.setText("Thống Kê");
         tkButton.setToolTipText("Remove");
@@ -223,6 +236,11 @@ public class QuanLiMatHang extends javax.swing.JFrame {
         ThongKeForm tk = new ThongKeForm();
         tk.setVisible(true);
     }//GEN-LAST:event_tkButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     //lay du lieu tu 1 hang cua table
     public MatHang getDataARow(){

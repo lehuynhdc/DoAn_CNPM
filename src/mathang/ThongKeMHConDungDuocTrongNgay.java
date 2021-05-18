@@ -93,7 +93,7 @@ public class ThongKeMHConDungDuocTrongNgay extends javax.swing.JFrame {
         tb_ConDungDuoc.setRowHeight(30);
         jScrollPane1.setViewportView(tb_ConDungDuoc);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 988, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 988, 210));
 
         lb_NgayKT.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_NgayKT.setForeground(new java.awt.Color(153, 0, 0));
