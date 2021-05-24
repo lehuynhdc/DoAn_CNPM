@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mathang.LichSuHu;
 
 /**
  *
@@ -49,6 +50,30 @@ public class ConnectionSQL {
         return false;
     }
     
+    //them 1 lichsuhu vao database
+    public boolean insertSLH(LichSuHu lsh){
+        try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            String insert = "INSERT INTO lichsuhu(idmathang,ngayhu,soluonghu)" 
+                                + "VALUES(?,?,?)";
+            try{
+                PreparedStatement ps = conn.prepareStatement(insert);
+                ps.setString(1, lsh.getIdMatHang());
+                ps.setDate(2, new Date(lsh.getNgayHu().getTime()));
+                ps.setInt(3, lsh.getSoLuongHu());
+                return ps.executeUpdate() > 0;
+            }
+            catch(SQLException ex){
+                System.err.println("Cannot connect insert, " + ex);
+            }
+        }
+        catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+        }
+        return false;
+    }
+    
     //thuc hien cau lenh update
     public void updateSQL(String update){
         try {
@@ -74,6 +99,45 @@ public class ConnectionSQL {
           }
     }
     
+    //lay datra de kt xem phieu da tra chua
+    public Boolean getDaTra(String idPM){
+        boolean datra = false;
+        try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
+            String select = "select datra from phieumuon where idpm = '" + 
+                    idPM +"'";
+            ResultSet rs = stmt.executeQuery(select);
+            while(rs.next()){
+                datra = rs.getBoolean("datra");
+            }   
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+        return datra;
+    }
+    //lay ma mathang va ngay hu (khoa chinh cua lichsuhu) 
+    public LichSuHu getPK(String id,String strDate){
+        LichSuHu lsh = new LichSuHu();
+        try {
+            String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
+            Statement stmt = conn.createStatement();
+            String select = "select * from lichsuhu where idmathang = '" + 
+                    id +"' and ngayhu = '" + strDate +"'";
+            ResultSet rs = stmt.executeQuery(select);
+            while(rs.next()){
+                lsh.setIdMatHang(rs.getString("idmathang"));
+                lsh.setNgayHu(rs.getDate("ngayhu"));
+                lsh.setSoLuongHu(rs.getInt("soluonghu"));
+            }   
+        } catch (SQLException ex) {
+            System.err.println("Cannot connect database, " + ex);
+          }
+        return lsh;
+    }
+    
     //thuc hien lay danh sach phieu nhap
     public ArrayList<PhieuMuon> getListPM(){
         ArrayList<PhieuMuon> list = new ArrayList<>();
@@ -88,6 +152,7 @@ public class ConnectionSQL {
                 pm.setIdPM(rs.getString("idpm"));
                 pm.setNgayMuon(rs.getDate("ngaymuon"));
                 pm.setIdNV(rs.getString("idnv"));
+                pm.setDaTra(rs.getBoolean("datra"));
                 list.add(pm);
             }   
         } catch (SQLException ex) {

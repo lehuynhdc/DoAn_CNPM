@@ -15,6 +15,15 @@ public class PhieuMuon {
     private String idPM;
     private Date ngayMuon;
     private String idNV;
+    private boolean daTra;
+
+    public boolean isDaTra() {
+        return daTra;
+    }
+
+    public void setDaTra(boolean daTra) {
+        this.daTra = daTra;
+    }
 
     public PhieuMuon(String idPM, Date ngayMuon, String idNV) {
         this.idPM = idPM;

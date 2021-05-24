@@ -504,7 +504,7 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
         MatHang mh = new MatHang();
         String text = text_SL.getText();
         char a = text.charAt(text.length() - 1);
-        if(!KTinput(Character.toString(a)) || text_SL.getText().equals("0")){
+        if(!KTinput(Character.toString(a)) || text_SL.getText().equals("0") || text_SL.getText().equals(" ")){
             text_SL.setText("");
             JOptionPane.showMessageDialog(rootPane, "Bạn chỉ được nhập số lớn hơn 0!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }

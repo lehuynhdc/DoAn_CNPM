@@ -126,7 +126,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 130, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 130, -1));
 
         editButton.setBackground(new java.awt.Color(255, 255, 255));
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -141,7 +141,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 130, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 130, -1));
 
         delButton.setBackground(new java.awt.Color(255, 255, 255));
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -156,20 +156,19 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 delButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 130, -1));
+        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, 130, -1));
 
         backButton.setBackground(new java.awt.Color(255, 255, 255));
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/back.png"))); // NOI18N
         backButton.setText("Trở lại");
         backButton.setToolTipText("Remove");
-        backButton.setPreferredSize(new java.awt.Dimension(125, 37));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 130, -1));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 130, -1));
 
         infoButton.setBackground(new java.awt.Color(255, 255, 255));
         infoButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -183,7 +182,7 @@ public class QuanLiPhieuNhap extends javax.swing.JFrame {
                 infoButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(infoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 130, -1));
+        getContentPane().add(infoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 130, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieunhap/background_formQL.jpg"))); // NOI18N
         background.setPreferredSize(new java.awt.Dimension(520, 320));

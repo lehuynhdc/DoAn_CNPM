@@ -9,11 +9,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import phieunhap.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -62,6 +60,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         delButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         btn_Info = new javax.swing.JButton();
+        traButton1 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,7 +89,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "        Mã phiếu mượn", "         Ngày nhập", "          Mã nhân viên", "           Tên"
+                "        Mã phiếu mượn", "         Ngày mượn", "          Mã nhân viên", "           Tên"
             }
         ) {
             Class[] types = new Class [] {
@@ -131,7 +130,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 245, -1, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 130, -1));
 
         editButton.setBackground(new java.awt.Color(255, 255, 255));
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -146,7 +145,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 305, -1, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 130, -1));
 
         delButton.setBackground(new java.awt.Color(255, 255, 255));
         delButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -161,7 +160,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 delButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 365, -1, -1));
+        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 130, -1));
 
         backButton.setBackground(new java.awt.Color(255, 255, 255));
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -188,7 +187,22 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 btn_InfoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 190, -1, -1));
+        getContentPane().add(btn_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 130, -1));
+
+        traButton1.setBackground(new java.awt.Color(255, 255, 255));
+        traButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        traButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/edit.png"))); // NOI18N
+        traButton1.setText("Trả");
+        traButton1.setToolTipText("Edit");
+        traButton1.setMaximumSize(new java.awt.Dimension(125, 37));
+        traButton1.setMinimumSize(new java.awt.Dimension(125, 37));
+        traButton1.setPreferredSize(new java.awt.Dimension(125, 37));
+        traButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                traButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(traButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 130, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieumuon/background_formQL.jpg"))); // NOI18N
         background.setText("jLabel1");
@@ -269,6 +283,23 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    
+    private void traButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traButton1ActionPerformed
+        // TODO add your handling code here:
+        if(this.getPhieuMuon() == null){
+            JOptionPane.showMessageDialog(rootPane, "Phải chọn 1 phiếu mượn để trả!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
+            return;
+        }
+        ConnectionSQL sql = new ConnectionSQL();
+        if(sql.getDaTra(this.getPhieuMuon().getIdPM())){
+            JOptionPane.showMessageDialog(rootPane, "Phiếu mượn này đã trả!", "Lỗi", JOptionPane.ERROR_MESSAGE);            
+            return; 
+        }
+        String strDate = this.jTable1.getValueAt(this.jTable1.getSelectedRow(),1).toString();
+        FormTraDC tra = new FormTraDC(this, rootPaneCheckingEnabled,strDate);
+        tra.setVisible(true);
+    }//GEN-LAST:event_traButton1ActionPerformed
+    
     //tim kiem theo ma hoac ten
     private void timKiem(int columnIndex) {
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
@@ -279,26 +310,51 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
     //load du lieu len table
     public void loadData(){
         ConnectionSQL sql = new ConnectionSQL();
+        //test tinh nang khi co user se xu li
+        String idpq = "PQ1",idnv = "NV3";
         SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
         dsPhieuMuon =  sql.getListPM();        
         model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0); // xoa bo noi dung cu cua table
-        for (PhieuMuon pm : dsPhieuMuon) {
-            String ten = null;
-            try {
-                String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
-                java.sql.Connection conn = DriverManager.getConnection(dbURL);
-                Statement stmt = conn.createStatement();
-                String select = "select ten from nhanvien where idnv = '" + pm.getIdNV() +"'";
-                ResultSet rs = stmt.executeQuery(select);
-                while(rs.next()){
-                    ten = rs.getString("ten");
-                }   
-            } catch (SQLException ex) {
-                System.err.println("Cannot connect database, " + ex);
+        if(idpq.equals("PQ2")){
+            for (PhieuMuon pm : dsPhieuMuon) {
+                if(pm.getIdNV().equals(idnv)){
+                    String ten = null;
+                    try {
+                        String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+                        java.sql.Connection conn = DriverManager.getConnection(dbURL);
+                        Statement stmt = conn.createStatement();
+                        String select = "select ten from nhanvien where idnv = '" + pm.getIdNV() +"'";
+                        ResultSet rs = stmt.executeQuery(select);
+                        while(rs.next()){
+                            ten = rs.getString("ten");
+                        }   
+                    } catch (SQLException ex) {
+                        System.err.println("Cannot connect database, " + ex);
+                    }
+                    Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),pm.getIdNV(),ten};
+                    model.addRow(data);
+                }
             }
-            Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),pm.getIdNV(),ten};
-            model.addRow(data);
+        }
+        else{
+            for (PhieuMuon pm : dsPhieuMuon) {
+                String ten = null;
+                try {
+                    String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
+                    java.sql.Connection conn = DriverManager.getConnection(dbURL);
+                    Statement stmt = conn.createStatement();
+                    String select = "select ten from nhanvien where idnv = '" + pm.getIdNV() +"'";
+                    ResultSet rs = stmt.executeQuery(select);
+                    while(rs.next()){
+                        ten = rs.getString("ten");
+                    }   
+                } catch (SQLException ex) {
+                    System.err.println("Cannot connect database, " + ex);
+                }
+                Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),pm.getIdNV(),ten};
+                model.addRow(data);
+            }
         }
     }
     
@@ -363,5 +419,6 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField text_TimKiem;
+    private javax.swing.JButton traButton1;
     // End of variables declaration//GEN-END:variables
 }

@@ -105,7 +105,7 @@ public class ShowCTPN extends javax.swing.JFrame {
 
         lb_IDPN.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lb_IDPN.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(lb_IDPN, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 23, 286, 30));
+        getContentPane().add(lb_IDPN, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 310, 30));
 
         btn_Back.setBackground(new java.awt.Color(255, 255, 255));
         btn_Back.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N

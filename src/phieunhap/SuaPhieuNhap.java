@@ -394,7 +394,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         // TODO add your handling code here:
         String text = text_SL.getText();
         char a = text.charAt(text.length() - 1);
-        if(!KTinput(Character.toString(a))){
+        if(!KTinput(Character.toString(a)) || text_SL.getText().equals("0") || text_SL.getText().equals(" ")){
             text_SL.setText("");
             JOptionPane.showMessageDialog(rootPane, "Bạn chỉ được nhập số!", "Lỗi", JOptionPane.ERROR_MESSAGE);  
         }
@@ -404,7 +404,7 @@ public class SuaPhieuNhap extends javax.swing.JFrame {
         // TODO add your handling code here:
         String text = text_Gia.getText();
         char a = text.charAt(text.length() - 1);
-        if(!KTinput(Character.toString(a))){
+        if(!KTinput(Character.toString(a)) || text_Gia.getText().equals("0") || text_Gia.getText().equals(" ")){
             text_Gia.setText("");
             JOptionPane.showMessageDialog(rootPane, "Bạn chỉ được nhập số!", "Lỗi", JOptionPane.ERROR_MESSAGE);  
         }
