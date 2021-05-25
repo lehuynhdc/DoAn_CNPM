@@ -8,9 +8,6 @@
 package phieumuon;
 
 import ctphieumuon.CTPhieuMuon;
-import phieunhap.*;
-import ctphieunhap.CTPhieuNhap;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -72,6 +69,8 @@ public class FormPhieuMuon extends javax.swing.JFrame {
         loadData(strDate);
         lb_NgayLapPhieu.setText(temp);
         text_idPM.setText(autoIDPM());
+        text_idNV.setText(aThis.getIdNV());
+        text_idNV.setEditable(false);
         text_idPM.setEditable(false);
         btn_XoaMHDaNhap.setVisible(false);
         comb_idMH_tenMH.setVisible(false);

@@ -59,10 +59,12 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         String temp = "Ngày: " + b + "-" +strDate.split("-")[1] + "-" +d;
         text_idPN.setText(autoIDPN());
         text_idPN.setEditable(false);
+        text_idNV.setText(aThis.getIdNV());
         lb_NgayLapPhieu.setText(temp);
         btn_XoaMHDaNhap.setVisible(false);
         comb_idMH_tenMH.setVisible(false);
         text_TimKiem.setVisible(false);
+        text_idNV.setEditable(false);
         qlpn = aThis;
     }
 

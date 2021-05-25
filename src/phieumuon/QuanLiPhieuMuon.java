@@ -31,6 +31,16 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
     private DefaultTableModel model;   
     private ArrayList<PhieuMuon> dsPhieuMuon;
     private PhieuMuon phieumuon;
+    private String idNV;
+    private String idPQ;
+
+    public String getIdPQ() {
+        return idPQ;
+    }
+    
+    public String getIdNV() {
+        return idNV;
+    }
 
     public PhieuMuon getPhieuMuon() {
         return phieumuon;
@@ -39,6 +49,14 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
     public QuanLiPhieuMuon() {
         initComponents();
         this.setLocationRelativeTo(null);
+        loadData();
+    }
+    
+    public QuanLiPhieuMuon(String idNV,String idPQ) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.idNV = idNV;
+        this.idPQ = idPQ;
         loadData();
     }
 
@@ -55,15 +73,15 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         text_TimKiem = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btn_Info = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         delButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        btn_Info = new javax.swing.JButton();
         traButton1 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Quản Lí Phiếu Mượn");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -117,6 +135,20 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 138, 560, 324));
 
+        btn_Info.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Info.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btn_Info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
+        btn_Info.setText("Info");
+        btn_Info.setMaximumSize(new java.awt.Dimension(125, 37));
+        btn_Info.setMinimumSize(new java.awt.Dimension(125, 37));
+        btn_Info.setPreferredSize(new java.awt.Dimension(125, 37));
+        btn_Info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InfoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 130, -1));
+
         addButton.setBackground(new java.awt.Color(255, 255, 255));
         addButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/them.png"))); // NOI18N
@@ -130,7 +162,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 130, -1));
+        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 130, -1));
 
         editButton.setBackground(new java.awt.Color(255, 255, 255));
         editButton.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -175,20 +207,6 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
         });
         getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 425, 130, -1));
 
-        btn_Info.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Info.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btn_Info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/info1.jpg"))); // NOI18N
-        btn_Info.setText("Info");
-        btn_Info.setMaximumSize(new java.awt.Dimension(125, 37));
-        btn_Info.setMinimumSize(new java.awt.Dimension(125, 37));
-        btn_Info.setPreferredSize(new java.awt.Dimension(125, 37));
-        btn_Info.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_InfoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 130, -1));
-
         traButton1.setBackground(new java.awt.Color(255, 255, 255));
         traButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         traButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathang/edit.png"))); // NOI18N
@@ -202,7 +220,7 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 traButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(traButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 130, -1));
+        getContentPane().add(traButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 130, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/phieumuon/background_formQL.jpg"))); // NOI18N
         background.setText("jLabel1");
@@ -311,14 +329,14 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
     public void loadData(){
         ConnectionSQL sql = new ConnectionSQL();
         //test tinh nang khi co user se xu li
-        String idpq = "PQ1",idnv = "NV3";
+//        String idpq = "PQ1",idnv = "NV3";
         SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
         dsPhieuMuon =  sql.getListPM();        
         model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0); // xoa bo noi dung cu cua table
-        if(idpq.equals("PQ2")){
+        if(idPQ.equals("PQ2")){
             for (PhieuMuon pm : dsPhieuMuon) {
-                if(pm.getIdNV().equals(idnv)){
+                if(pm.getIdNV().equals(idNV)){
                     String ten = null;
                     try {
                         String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
