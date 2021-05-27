@@ -73,7 +73,6 @@ public class ThongKeMHHu extends javax.swing.JFrame {
         getContentPane().add(lb_TieuDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 73, -1, 40));
 
         Tb_SPHu.setAutoCreateRowSorter(true);
-        Tb_SPHu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         Tb_SPHu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         Tb_SPHu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -192,17 +192,10 @@ public class ConnectionSQL {
         String select = "SELECT * FROM MATHANG";
         listMH = sql.getListMH(select);
         String id = "MH";
-        int soluong,j = 0;
+        int soluong,j;
         for(MatHang mh:listMH){
             if(mh.ktChoMuonTB(mh.getIdMatHang(),strDate)){
                 soluong = this.getSLConDungDuoc(mh.getIdMatHang(),strDate);
-                j = 0;
-                for(MatHang mh1:listMHDaThem){
-                    if(mh.getIdMatHang().equals(mh1.getIdMatHang())){
-                        soluong = soluong - listSL.get(j);
-                    }
-                    j++;
-                }
                 list.add(soluong);             
             }
         }         

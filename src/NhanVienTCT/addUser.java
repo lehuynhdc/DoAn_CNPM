@@ -102,6 +102,7 @@ public class addUser extends javax.swing.JFrame {
         });
 
         tableqlnv.setBackground(new java.awt.Color(102, 102, 102));
+        tableqlnv.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         tableqlnv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -109,7 +110,23 @@ public class addUser extends javax.swing.JFrame {
             new String [] {
                 "Mã NV", "Họ", "Tên", "Giới tính", "Địa chỉ", "Username", "Password", "Mã PQ"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableqlnv.setRowHeight(30);
         tableqlnv.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tableqlnvKeyReleased(evt);
@@ -117,16 +134,22 @@ public class addUser extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableqlnv);
 
+        jlableIDNV.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jlableIDNV.setText("Mã NV");
 
+        jLabelHo.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelHo.setText("Họ");
 
+        jLabelTen.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelTen.setText("Tên");
 
+        jLabelGioiTinh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelGioiTinh.setText("Giới tính");
 
+        jLabelDiaChi.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelDiaChi.setText("Địa Chỉ");
 
+        txtid.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtid.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtidFocusLost(evt);
@@ -138,42 +161,53 @@ public class addUser extends javax.swing.JFrame {
             }
         });
 
+        txtho.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtho.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txthoFocusLost(evt);
             }
         });
 
+        txtten.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtten.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txttenFocusLost(evt);
             }
         });
 
+        txtgioitinh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtgioitinh.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtgioitinhFocusLost(evt);
             }
         });
 
+        txtdc.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        JlableUser.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         JlableUser.setText("Username");
 
+        jLabelPass.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelPass.setText("Password");
 
+        jLabelMaPQ.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelMaPQ.setText("Mã PQ");
 
+        txtuser.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtuser.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtuserFocusLost(evt);
             }
         });
 
+        txtpass.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtpass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtpassFocusLost(evt);
             }
         });
 
+        txtpq.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtpq.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtpqFocusLost(evt);
@@ -226,7 +260,7 @@ public class addUser extends javax.swing.JFrame {
                                     .addComponent(txtdc))))
                         .addContainerGap(12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(insert, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,7 +320,7 @@ public class addUser extends javax.swing.JFrame {
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
         
         if(txtid.getText().equals("") || txtho.getText().equals("") || txtten.getText().equals("") || txtgioitinh.getText().equals("") 
-                    || txtdc.getText().equals("") || txtuser.getText().equals("") || txtpass.getText().equals("") || txtpq.getText().equals("")){
+                    || txtuser.getText().equals("") || txtpass.getText().equals("") || txtpq.getText().equals("")){
                 JOptionPane.showMessageDialog(this,"Không để thông tin trống");
                 return;
             }  
@@ -309,15 +343,14 @@ public class addUser extends javax.swing.JFrame {
              
             
             int n =ps.executeUpdate();
-            if(txtid.getText().equals("") || txtho.getText().equals("") || txtten.getText().equals("") || txtgioitinh.getText().equals("") 
-                    || txtdc.getText().equals("")){
-                JOptionPane.showMessageDialog(this,"Không để thông tin trống");
-            }   
-            else if(n!=0){
-                JOptionPane.showMessageDialog(this,"Đăng kí thành công");
-            }else{
-                JOptionPane.showMessageDialog(this,"Đăng kí thất bại");
-            }                                             
+//            if(txtid.getText().equals("") || txtho.getText().equals("") || txtten.getText().equals("") || txtgioitinh.getText().equals("")){
+//                JOptionPane.showMessageDialog(this,"Không để thông tin trống");
+//            }   
+//            else if(n!=0){
+//                JOptionPane.showMessageDialog(this,"Đăng kí thành công");
+//            }else{
+//                JOptionPane.showMessageDialog(this,"Đăng kí thất bại");
+//            }                                             
         } catch (Exception e) {
             e.printStackTrace();
         }

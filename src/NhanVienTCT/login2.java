@@ -133,7 +133,7 @@ public class login2 extends javax.swing.JFrame {
         txtlogin.setBackground(new java.awt.Color(186, 79, 84));
         txtlogin.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtlogin.setText("Login");
-        txtlogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        txtlogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtloginActionPerformed(evt);
@@ -143,7 +143,7 @@ public class login2 extends javax.swing.JFrame {
         txtlregister.setBackground(new java.awt.Color(186, 79, 84));
         txtlregister.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtlregister.setText("Register");
-        txtlregister.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        txtlregister.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtlregister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtlregisterActionPerformed(evt);

@@ -30,13 +30,14 @@ public class ConnectionSQL {
         try {
             String dbURL = "jdbc:sqlserver://localhost;databaseName=QL_DCMPTCT;user=sa;password=sa";
             java.sql.Connection conn = DriverManager.getConnection(dbURL);
-            String insert = "INSERT INTO phieumuon(idpm,ngaymuon,idnv)" 
-                                + "VALUES(?,?,?)";
+            String insert = "INSERT INTO phieumuon(idpm,ngaymuon,idnv,datra)" 
+                                + "VALUES(?,?,?,?)";
             try{
                 PreparedStatement ps = conn.prepareStatement(insert);
                 ps.setString(1, pm.getIdPM());
                 ps.setDate(2, new Date(pm.getNgayMuon().getTime()));
                 ps.setString(3, pm.getIdNV());
+                ps.setBoolean(4, pm.isDaTra());
                 return ps.executeUpdate() > 0;
             }
             catch(SQLException ex){

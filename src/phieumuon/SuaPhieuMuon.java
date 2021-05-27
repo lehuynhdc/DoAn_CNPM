@@ -367,6 +367,12 @@ public class SuaPhieuMuon extends javax.swing.JFrame {
             else{
                 dsMatHangDaThem.add(mh);
                 dsSoLuong.add(Integer.parseInt(text_SL.getText()));
+                
+                //them mat hang vua muon vao database
+                ctphieumuon.CTPhieuMuon ctpm = new ctphieumuon.CTPhieuMuon(text_idPM.getText(), mh.getIdMatHang(), Integer.parseInt(text_SL.getText()));
+                ctphieumuon.ConnectionSQL sql = new ctphieumuon.ConnectionSQL();
+                sql.insertSQL(ctpm);
+                
                 model = (DefaultTableModel) jTable1.getModel();
                 model.setRowCount(0); // xoa bo noi dung cu cua table
                 for (MatHang mh1 : dsMatHangDaThem) {

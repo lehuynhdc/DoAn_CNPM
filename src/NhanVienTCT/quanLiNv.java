@@ -51,11 +51,11 @@ public class quanLiNv extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         rowheader= new Vector();
-        rowheader.add("idnv");
-        rowheader.add("ho");
-        rowheader.add("ten");
-        rowheader.add("gioitinh");
-        rowheader.add("diachi");
+        rowheader.add("Mã nhân viên");
+        rowheader.add("Họ");
+        rowheader.add("Tên");
+        rowheader.add("Giới tính");
+        rowheader.add("Địa chỉ");
         
         model = new DefaultTableModel(rowheader,0);
         jTable1_nhanvien.setModel(model);
@@ -163,6 +163,7 @@ public class quanLiNv extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Quản lí nhân viên");
 
+        jTable1_nhanvien.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1_nhanvien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -170,7 +171,23 @@ public class quanLiNv extends javax.swing.JFrame {
             new String [] {
                 "Mã NV", "Họ", "Tên", "Giới Tính", "Địa chỉ"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1_nhanvien.setRowHeight(30);
         jTable1_nhanvien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1_nhanvienMouseClicked(evt);
@@ -201,7 +218,7 @@ public class quanLiNv extends javax.swing.JFrame {
         });
 
         btnupdate.setBackground(new java.awt.Color(255, 153, 0));
-        btnupdate.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        btnupdate.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnupdate.setForeground(new java.awt.Color(255, 255, 255));
         btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anh/convert-3213.png"))); // NOI18N
         btnupdate.setText("Update");
@@ -221,30 +238,45 @@ public class quanLiNv extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel2.setText("Mã NV");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel3.setText("Họ");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel4.setText("Tên");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel5.setText("Giới tính");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel6.setText("Địa chỉ");
 
+        txtmanv.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtmanv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtmanvActionPerformed(evt);
             }
         });
 
+        txtho.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        txtten.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        txtgioitinh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+
+        txtdiachi.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtdiachi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdiachiActionPerformed(evt);
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel7.setText("Search( MãNV )");
 
+        txtsearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtsearchActionPerformed(evt);
@@ -290,7 +322,7 @@ public class quanLiNv extends javax.swing.JFrame {
                                     .addComponent(txtten)
                                     .addComponent(txtgioitinh)
                                     .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(66, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +335,7 @@ public class quanLiNv extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -315,7 +347,7 @@ public class quanLiNv extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtsearch, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                        .addComponent(txtsearch)
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)

@@ -330,7 +330,6 @@ public class FormPhieuMuon extends javax.swing.JFrame {
                     i++;
                 }
                 this.matHang = null;
-                text_SL.setText("");
             }
         }
         String b,c;
@@ -470,10 +469,11 @@ public class FormPhieuMuon extends javax.swing.JFrame {
         mathang.ConnectionSQL sql = new mathang.ConnectionSQL();
         ArrayList<MatHang> dsMHDelete = new ArrayList<>();
         ArrayList<Integer> list = sql.getListSLConDungDuocAfter(strDate,dsMatHangDaThem,dsSoLuong);
-        int i = 0;
+        int i = 0,j = 0;
         dsMatHang =  sql.getListMH("select * from mathang");        
         model = (DefaultTableModel) table_TimKiem.getModel();
         model.setRowCount(0); // xoa bo noi dung cu cua table
+        //xoa cac mat hang ko con the muon duoc trong ngay
         for(MatHang mh : dsMatHang){
             if(!(mh.ktChoMuonTB(mh.getIdMatHang(), strDate))){
                 dsMHDelete.add(mh);
@@ -483,6 +483,22 @@ public class FormPhieuMuon extends javax.swing.JFrame {
         for(MatHang mh :dsMHDelete){
             dsMatHang.remove(mh);
         }
+        
+        //update lai list(list so luong mat hang con cho muon chua tru so vua them vao phieu)
+        i = 0;
+        for(MatHang mh : dsMatHang){
+            for(MatHang mh1 : dsMatHangDaThem){
+                if(mh.getIdMatHang().equals(mh1.getIdMatHang())){
+                    int soluong = list.get(i) - dsSoLuong.get(j);
+                    list.set(i, soluong);
+                    break;
+                }
+                j++;
+            }
+            j = 0;
+            i++;
+        }
+        
         i = 0;
         for (MatHang mh : dsMatHang) {
             if(list.get(i) != 0){
@@ -491,6 +507,7 @@ public class FormPhieuMuon extends javax.swing.JFrame {
             }            
             i++;
         }
+        text_SL.setText("");
     }
     
     //lay du lieu tu 1 hang cua table tim kiem
