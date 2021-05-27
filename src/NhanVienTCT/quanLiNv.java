@@ -157,11 +157,13 @@ public class quanLiNv extends javax.swing.JFrame {
         txtdiachi = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtsearch = new javax.swing.JTextField();
+        background = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Quản lí nhân viên");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1_nhanvien.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTable1_nhanvien.setModel(new javax.swing.table.DefaultTableModel(
@@ -195,6 +197,8 @@ public class quanLiNv extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1_nhanvien);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 468, 518));
+
         btnadd.setBackground(new java.awt.Color(51, 255, 0));
         btnadd.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,6 +209,7 @@ public class quanLiNv extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 11, 116, 48));
 
         btndelete.setBackground(new java.awt.Color(255, 51, 51));
         btndelete.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -216,6 +221,7 @@ public class quanLiNv extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 11, 135, 48));
 
         btnupdate.setBackground(new java.awt.Color(255, 153, 0));
         btnupdate.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -227,6 +233,7 @@ public class quanLiNv extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(673, 430, 130, 39));
 
         btnclose.setBackground(new java.awt.Color(0, 0, 0));
         btnclose.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -237,21 +244,27 @@ public class quanLiNv extends javax.swing.JFrame {
                 btncloseActionPerformed(evt);
             }
         });
+        getContentPane().add(btnclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 480, 94, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel2.setText("Mã NV");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 122, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel3.setText("Họ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 179, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel4.setText("Tên");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 251, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel5.setText("Giới tính");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 312, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel6.setText("Địa chỉ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 381, -1, -1));
 
         txtmanv.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtmanv.addActionListener(new java.awt.event.ActionListener() {
@@ -259,12 +272,16 @@ public class quanLiNv extends javax.swing.JFrame {
                 txtmanvActionPerformed(evt);
             }
         });
+        getContentPane().add(txtmanv, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 122, 157, -1));
 
         txtho.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(txtho, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 179, 157, -1));
 
         txtten.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(txtten, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 247, 157, -1));
 
         txtgioitinh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(txtgioitinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 309, 157, -1));
 
         txtdiachi.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtdiachi.addActionListener(new java.awt.event.ActionListener() {
@@ -272,9 +289,11 @@ public class quanLiNv extends javax.swing.JFrame {
                 txtdiachiActionPerformed(evt);
             }
         });
+        getContentPane().add(txtdiachi, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 378, 157, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel7.setText("Search( MãNV )");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 70, -1, -1));
 
         txtsearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtsearch.addActionListener(new java.awt.event.ActionListener() {
@@ -287,96 +306,10 @@ public class quanLiNv extends javax.swing.JFrame {
                 txtsearchKeyReleased(evt);
             }
         });
+        getContentPane().add(txtsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 157, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel2))))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtdiachi, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtsearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtmanv, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                                    .addComponent(txtho)
-                                    .addComponent(txtten)
-                                    .addComponent(txtgioitinh)
-                                    .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnclose, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnadd, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(btndelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(22, 22, 22))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtsearch)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtmanv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtgioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtdiachi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnupdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnclose)
-                .addContainerGap())
-        );
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anh/QLNV_background.jpg"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 890, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -546,6 +479,7 @@ public class quanLiNv extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btnclose;
     private javax.swing.JButton btndelete;

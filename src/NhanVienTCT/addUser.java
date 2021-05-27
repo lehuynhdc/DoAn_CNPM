@@ -81,9 +81,11 @@ public class addUser extends javax.swing.JFrame {
         txtpass = new javax.swing.JTextField();
         txtpq = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thêm Nhân Viên");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         insert.setBackground(new java.awt.Color(51, 255, 51));
         insert.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -100,6 +102,7 @@ public class addUser extends javax.swing.JFrame {
                 insertActionPerformed(evt);
             }
         });
+        getContentPane().add(insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 468, 130, -1));
 
         tableqlnv.setBackground(new java.awt.Color(102, 102, 102));
         tableqlnv.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -134,20 +137,32 @@ public class addUser extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableqlnv);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 547));
+
         jlableIDNV.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jlableIDNV.setForeground(new java.awt.Color(102, 102, 102));
         jlableIDNV.setText("Mã NV");
+        getContentPane().add(jlableIDNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 25, -1, -1));
 
         jLabelHo.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabelHo.setForeground(new java.awt.Color(102, 102, 102));
         jLabelHo.setText("Họ");
+        getContentPane().add(jLabelHo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 78, -1, -1));
 
         jLabelTen.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabelTen.setForeground(new java.awt.Color(102, 102, 102));
         jLabelTen.setText("Tên");
+        getContentPane().add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 136, -1, -1));
 
         jLabelGioiTinh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabelGioiTinh.setForeground(new java.awt.Color(102, 102, 102));
         jLabelGioiTinh.setText("Giới tính");
+        getContentPane().add(jLabelGioiTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 194, -1, -1));
 
         jLabelDiaChi.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabelDiaChi.setForeground(new java.awt.Color(102, 102, 102));
         jLabelDiaChi.setText("Địa Chỉ");
+        getContentPane().add(jLabelDiaChi, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 251, -1, -1));
 
         txtid.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtid.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -160,6 +175,7 @@ public class addUser extends javax.swing.JFrame {
                 txtidActionPerformed(evt);
             }
         });
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(826, 22, 246, -1));
 
         txtho.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtho.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -167,6 +183,7 @@ public class addUser extends javax.swing.JFrame {
                 txthoFocusLost(evt);
             }
         });
+        getContentPane().add(txtho, new org.netbeans.lib.awtextra.AbsoluteConstraints(826, 75, 246, -1));
 
         txtten.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtten.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -174,6 +191,7 @@ public class addUser extends javax.swing.JFrame {
                 txttenFocusLost(evt);
             }
         });
+        getContentPane().add(txtten, new org.netbeans.lib.awtextra.AbsoluteConstraints(826, 133, 246, -1));
 
         txtgioitinh.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtgioitinh.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -181,17 +199,25 @@ public class addUser extends javax.swing.JFrame {
                 txtgioitinhFocusLost(evt);
             }
         });
+        getContentPane().add(txtgioitinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(826, 191, 246, -1));
 
         txtdc.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(txtdc, new org.netbeans.lib.awtextra.AbsoluteConstraints(826, 248, 246, -1));
 
         JlableUser.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        JlableUser.setForeground(new java.awt.Color(102, 102, 102));
         JlableUser.setText("Username");
+        getContentPane().add(JlableUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 309, -1, -1));
 
         jLabelPass.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabelPass.setForeground(new java.awt.Color(102, 102, 102));
         jLabelPass.setText("Password");
+        getContentPane().add(jLabelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 366, -1, -1));
 
         jLabelMaPQ.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabelMaPQ.setForeground(new java.awt.Color(102, 102, 102));
         jLabelMaPQ.setText("Mã PQ");
+        getContentPane().add(jLabelMaPQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 419, -1, -1));
 
         txtuser.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtuser.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -199,6 +225,7 @@ public class addUser extends javax.swing.JFrame {
                 txtuserFocusLost(evt);
             }
         });
+        getContentPane().add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 306, 246, -1));
 
         txtpass.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtpass.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -206,6 +233,7 @@ public class addUser extends javax.swing.JFrame {
                 txtpassFocusLost(evt);
             }
         });
+        getContentPane().add(txtpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 363, 246, -1));
 
         txtpq.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         txtpq.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -213,6 +241,7 @@ public class addUser extends javax.swing.JFrame {
                 txtpqFocusLost(evt);
             }
         });
+        getContentPane().add(txtpq, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 416, 246, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -223,96 +252,10 @@ public class addUser extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(994, 518, 92, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelPass)
-                                    .addComponent(jLabelMaPQ)
-                                    .addComponent(JlableUser))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtpass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                                    .addComponent(txtuser)
-                                    .addComponent(txtpq)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelGioiTinh)
-                                    .addComponent(jLabelHo)
-                                    .addComponent(jlableIDNV)
-                                    .addComponent(jLabelTen)
-                                    .addComponent(jLabelDiaChi))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtten, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                                    .addComponent(txtho)
-                                    .addComponent(txtid)
-                                    .addComponent(txtgioitinh)
-                                    .addComponent(txtdc))))
-                        .addContainerGap(12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(insert, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlableIDNV)
-                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelHo)
-                    .addComponent(txtho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTen)
-                    .addComponent(txtten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelGioiTinh)
-                    .addComponent(txtgioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtdc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDiaChi))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JlableUser))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPass)
-                    .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelMaPQ)
-                    .addComponent(txtpq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(insert)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-        );
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anh/addUser_background.jpg"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 1100, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -530,6 +473,7 @@ public class addUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JlableUser;
+    private javax.swing.JLabel background;
     private javax.swing.JButton insert;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabelDiaChi;
