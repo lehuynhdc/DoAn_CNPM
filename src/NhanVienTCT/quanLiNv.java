@@ -292,7 +292,7 @@ public class quanLiNv extends javax.swing.JFrame {
         getContentPane().add(txtdiachi, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 378, 157, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel7.setText("Search( MãNV )");
+        jLabel7.setText("Search( Mã NV )");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 70, -1, -1));
 
         txtsearch.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
