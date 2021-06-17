@@ -29,7 +29,7 @@ public class ThongKeMHHu extends javax.swing.JFrame {
         int tongSL = 0,index = 0;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         DefaultTableModel model = new DefaultTableModel();
-        String a[] = {"       ID", "   Tên mặt hàng", "  Số lượng hư hoặc hết hạn","    Ngày bị hư"};
+        String a[] = {"       ID", "   Tên mặt hàng", "  Số lượng hư","    Ngày bị hư"};
         model.setColumnIdentifiers(a);
         ArrayList arrRows = new ArrayList();
         for(MatHang temp:mh){
@@ -69,8 +69,8 @@ public class ThongKeMHHu extends javax.swing.JFrame {
 
         lb_TieuDe.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_TieuDe.setForeground(new java.awt.Color(153, 0, 0));
-        lb_TieuDe.setText("Các sản phẩm đang hư và mỹ phẩm hết hạn");
-        getContentPane().add(lb_TieuDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 73, -1, 40));
+        lb_TieuDe.setText("Các sản phẩm đang hư");
+        getContentPane().add(lb_TieuDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, -1, 40));
 
         Tb_SPHu.setAutoCreateRowSorter(true);
         Tb_SPHu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N

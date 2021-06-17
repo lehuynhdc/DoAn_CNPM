@@ -110,7 +110,7 @@ public class MatHang {
         listLS = sql.getListMHHuSoLuong();
         if(listMH.isEmpty()){
             Component panel = null;
-            JOptionPane.showMessageDialog(panel, "Hiện tại không có mặt hàng nào bị hư hoặc đã hết hạn", "Notifications", 
+            JOptionPane.showMessageDialog(panel, "Hiện tại không có mặt hàng nào bị hư", "Notifications", 
                               JOptionPane.INFORMATION_MESSAGE);
         }
         else{

@@ -34,11 +34,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="99" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="C&#xe1;c s&#x1ea3;n ph&#x1ea9;m &#x111;ang h&#x1b0; v&#xe0; m&#x1ef9; ph&#x1ea9;m h&#x1ebf;t h&#x1ea1;n"/>
+        <Property name="text" type="java.lang.String" value="C&#xe1;c s&#x1ea3;n ph&#x1ea9;m &#x111;ang h&#x1b0;"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="330" y="73" width="-1" height="40"/>
+          <AbsoluteConstraints x="440" y="70" width="-1" height="40"/>
         </Constraint>
       </Constraints>
     </Component>

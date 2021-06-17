@@ -60,7 +60,7 @@ public class ThongKeForm extends javax.swing.JFrame {
 
         lb_Hu.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lb_Hu.setForeground(new java.awt.Color(255, 255, 255));
-        lb_Hu.setText("Thống kê mặt hàng hư hoặc hết hạn:");
+        lb_Hu.setText("Thống kê mặt hàng hư:");
         getContentPane().add(lb_Hu, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 233, -1, -1));
 
         lb_ConDungDuoc.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
