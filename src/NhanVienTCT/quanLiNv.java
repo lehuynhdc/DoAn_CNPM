@@ -326,6 +326,12 @@ public class quanLiNv extends javax.swing.JFrame {
        
         int opt =JOptionPane.showConfirmDialog(null,"Bạn có muốn xóa không","Xóa",JOptionPane.YES_NO_OPTION);
         if(opt==0){
+            int i = jTable1_nhanvien.getSelectedRow();
+            String idnvtam=((String) jTable1_nhanvien.getValueAt(i,0));
+            if(idnvtam.equals("NV0001")){
+                JOptionPane.showMessageDialog(this,"không được phép xóa admin");
+                return;
+            }
         try {
             Class.forName(driver);
             Connection con= DriverManager.getConnection(url,user,password);

@@ -80,7 +80,15 @@ public class ThongKeMHConDungDuoc extends javax.swing.JFrame {
             new String [] {
                 "                                                    ID", "                                           Tên Mặt Hàng", "                                         Số Lượng"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tb_ConDungDuoc.setRowHeight(30);
         jScrollPane1.setViewportView(tb_ConDungDuoc);
 

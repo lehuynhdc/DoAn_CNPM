@@ -94,7 +94,15 @@ public class ThongKeMHHu extends javax.swing.JFrame {
             new String [] {
                 "                                   ID", "                                Tên mặt hàng", "                                    Số lượng", "                            Ngày bị hư"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         Tb_SPHu.setMinimumSize(new java.awt.Dimension(45, 120));
         Tb_SPHu.setPreferredSize(new java.awt.Dimension(225, 120));
         Tb_SPHu.setRowHeight(30);

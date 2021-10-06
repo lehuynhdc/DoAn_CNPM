@@ -107,14 +107,14 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "        Mã phiếu mượn", "         Ngày mượn", "          Mã nhân viên", "           Tên"
+                "        Mã phiếu mượn", "         Ngày mượn", "          Tên nhân viên", "    Tình trạng phiếu"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -350,8 +350,10 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                         System.err.println("Cannot connect database, " + ex);
                     }
-                    Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),pm.getIdNV(),ten};
-                    model.addRow(data);
+                String daTra;
+                if(pm.isDaTra()) daTra = "Đã trả";
+                else daTra = "Chưa trả";
+                Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),ten,daTra};                   model.addRow(data);
                 }
             }
         }
@@ -370,7 +372,10 @@ public class QuanLiPhieuMuon extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     System.err.println("Cannot connect database, " + ex);
                 }
-                Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),pm.getIdNV(),ten};
+                String daTra;
+                if(pm.isDaTra()) daTra = "Đã trả";
+                else daTra = "Chưa trả";
+                Object[] data = {pm.getIdPM(),format1.format(pm.getNgayMuon()),ten,daTra};
                 model.addRow(data);
             }
         }

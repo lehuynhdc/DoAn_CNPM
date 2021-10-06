@@ -489,6 +489,10 @@ public class FormPhieuNhap extends javax.swing.JFrame {
         ConnectionSQL sql = new ConnectionSQL();
         String lastIDPN = sql.getLastIDPN();
         String newIDPN = "PN";
+        if(lastIDPN == null){
+            newIDPN += '1'; 
+            return newIDPN;
+        }
         int temp = Integer.parseInt(lastIDPN.split("N")[1]);
         newIDPN += String.valueOf(temp+1);
         return newIDPN;

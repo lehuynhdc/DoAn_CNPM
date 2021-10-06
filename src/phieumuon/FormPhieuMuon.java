@@ -537,6 +537,10 @@ public class FormPhieuMuon extends javax.swing.JFrame {
         ConnectionSQL sql = new ConnectionSQL();
         String lastIDPM = sql.getLastIDPM();
         String newIDPM = "PM";
+        if(lastIDPM == null){
+            newIDPM += '1'; 
+            return newIDPM;
+        }
         int temp = Integer.parseInt(lastIDPM.split("M")[1]);
         newIDPM += String.valueOf(temp+1);
         return newIDPM;

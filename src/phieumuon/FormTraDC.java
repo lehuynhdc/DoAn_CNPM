@@ -283,6 +283,7 @@ public class FormTraDC extends javax.swing.JFrame {
             }
         }
         this.dispose();
+        qlpm.loadData();
     }//GEN-LAST:event_btn_SubmitActionPerformed
 
     private void text_SLHuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_SLHuKeyReleased

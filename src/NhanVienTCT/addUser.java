@@ -46,8 +46,8 @@ public class addUser extends javax.swing.JFrame {
         nv.add("Username");
         nv.add("Password");
         nv.add("Mã PQ");
-          
-          
+        txtpq.setText("PQ2");
+        txtpq.setEditable(false);
           tableqlnv.setModel(new DefaultTableModel(datanv,nv));
           
     }
@@ -137,7 +137,7 @@ public class addUser extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableqlnv);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 547));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
 
         jlableIDNV.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jlableIDNV.setForeground(new java.awt.Color(102, 102, 102));
@@ -262,6 +262,27 @@ public class addUser extends javax.swing.JFrame {
    // them
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
         
+        String idtam= txtid.getText();
+        String tamid;
+         try {
+            Class.forName(driver);
+            Connection conid = DriverManager.getConnection(url,user,password);
+            String sqlus="SELECT idnv FROM nhanvien";
+            Statement stid = conid.createStatement();
+            ResultSet rsid = stid.executeQuery(sqlus);
+            
+            while(rsid.next()){
+           tamid=rsid.getString("idnv");
+           if(tamid.equals(idtam)){
+                 JOptionPane.showMessageDialog(this,"MANV đã tồn tại xin nhập lại");
+                return;
+           }   
+           
+        }     
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
         if(txtid.getText().equals("") || txtho.getText().equals("") || txtten.getText().equals("") || txtgioitinh.getText().equals("") 
                     || txtuser.getText().equals("") || txtpass.getText().equals("") || txtpq.getText().equals("")){
                 JOptionPane.showMessageDialog(this,"Không để thông tin trống");
@@ -271,6 +292,25 @@ public class addUser extends javax.swing.JFrame {
        if(dk!=JOptionPane.YES_NO_OPTION){
            return;
        }
+        String usertam = txtuser.getText();
+        String tam;
+         try {
+            Class.forName(driver);
+            Connection con1 = DriverManager.getConnection(url,user,password);
+            String sqlus="select username FROM userCH";
+            Statement stus = con1.createStatement();
+            ResultSet rsus = stus.executeQuery(sqlus);
+            
+            while(rsus.next()){
+           tam=rsus.getString("username");
+           if(tam.equals(usertam)){
+               JOptionPane.showMessageDialog(this,"Username đã tồn tại");
+                return;
+           }   
+        }     
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
         try {
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url,user,password);
@@ -282,9 +322,7 @@ public class addUser extends javax.swing.JFrame {
             ps.setString(3,txtten.getText());
             ps.setString(4,txtgioitinh.getText());
             ps.setString(5,txtdc.getText());
-            
-             
-            
+        
             int n =ps.executeUpdate();
 //            if(txtid.getText().equals("") || txtho.getText().equals("") || txtten.getText().equals("") || txtgioitinh.getText().equals("")){
 //                JOptionPane.showMessageDialog(this,"Không để thông tin trống");
